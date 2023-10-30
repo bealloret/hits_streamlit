@@ -13,7 +13,8 @@ st.write("""
 """)
 
 # load model
-file_path = os.path.join("path_to_directory", "trained_pipe_knn.sav")  # Specify the full path to the file
+file_path = file_path = "trained_pipe_knn.sav"
+ # Specify the full path to the file
 loaded_model = pickle.load(open(file_path, 'rb'))
 
 artist = st.text_input("artits")
