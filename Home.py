@@ -1,7 +1,8 @@
-import streamlit as st
+pip install scikit-learn
 import streamlit as st
 import pickle
 import os
+import pandas as pd
 
 
 st.title("Hit Prediction")
@@ -12,8 +13,8 @@ st.write("""
 """)
 
 # load model
-import pickle
-loaded_model = pickle.load(open('trained_pipe_knn.sav', 'rb'))
+file_path = os.path.join("path_to_directory", "trained_pipe_knn.sav")  # Specify the full path to the file
+loaded_model = pickle.load(open(file_path, 'rb'))
 
 artist = st.text_input("artits")
 genre = st.text_input("genre")
