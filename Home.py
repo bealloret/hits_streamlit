@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import os
 import pandas as pd
+import sklearn
 
 st.title("Hit Prediction")
 
