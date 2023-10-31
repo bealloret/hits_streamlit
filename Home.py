@@ -2,38 +2,7 @@ import streamlit as st
 import pickle
 import os
 import pandas as pd
-import sklearn
-from sklearn.model_selection import train_test_split
-from sklearn.impute import SimpleImputer
-
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import MinMaxScaler
-
-from sklearn.pipeline import make_pipeline
-from sklearn.compose import ColumnTransformer
-from sklearn.compose import make_column_transformer
-
-# feature selection
-from sklearn.feature_selection import VarianceThreshold
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import f_regression
-from sklearn.feature_selection import VarianceThreshold, SelectKBest, f_regression, RFECV, SelectFromModel
-
-# Regression models
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import RandomizedSearchCV
-
-# Metrics
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_squared_error     #for mean_squared_error and root_mean_squared_error
-from sklearn.metrics import mean_absolute_percentage_error
-from sklearn.metrics import r2_score  
-
-from sklearn import set_config
-set_config(transform_output="pandas")
-
+import scikit-learn
 
 st.title("Hit Prediction")
 
