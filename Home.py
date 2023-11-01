@@ -15,14 +15,21 @@ st.write("""
 # Display the title in italic
 st.markdown(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
 
-# Add the image of the album from a URL with rounded corners
+# Add the image of the album from a URL with rounded corners using CSS
+st.markdown("""
+<style>
+    img {
+        border-radius: 12px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
          caption="Album Cover of I'm Good (Blue)",
          width=200,
          output_format="PNG",
          use_column_width=False,
          clamp=False,
-         style="border-radius: 10px;"
          )
 
 
