@@ -22,12 +22,12 @@ st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2
          output_format="PNG",
          use_column_width=False,
          clamp=False,
-         output_height=200,
+         height=200,
          style="border-radius: 10px;"
          )
 
 # Display the sentence with the same size as the song title
-st.write("## Look at the features of this song:")
+st.markdown("## Look at the features of this song:")
 
 # Creating a sample plot for the example of popularity
 features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
