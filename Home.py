@@ -12,7 +12,7 @@ st.write("""
 ### Here you can test your hability to generate a music hit
 
 """)
-st.write("This is the hit by David Guetta: I'm Good (Blue)\n### Look at the features of this song")
+st.write("This is the hit by David Guetta: I'm Good (Blue)\n# Look at the features of this song")
 
 # Creating a sample plot for the example of popularity
 features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
