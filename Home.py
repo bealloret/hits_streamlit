@@ -15,9 +15,14 @@ st.write("""
 # Display the title in italic
 st.write(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
 
-# Add the image of the album from a URL
-st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", caption="Album Cover of I'm Good (Blue)")
-
+# Add the image of the album from a URL with rounded corners
+st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
+         caption="Album Cover of I'm Good (Blue)", 
+         width=200, 
+         output_format="PNG",
+         use_column_width=True,
+         output_height=200,
+         style={"border-radius": "10px"})
 
 # Display the sentence with the same size as the song title
 st.write("## Look at the features of this song:")
