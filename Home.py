@@ -3,13 +3,24 @@ import pickle
 import os
 import pandas as pd
 import sklearn
+import matplotlib.pyplot as plt
 
-st.title("Hit Prediction")
+st.title("Welcome to the music hit factory")
 
 st.write("""
-### Project description
+### Here you can test your hability to generate a music hit
 
 """)
+
+# Creating a sample plot for the example of popularity
+features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
+            'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
+popularity_scores = [0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5]
+
+fig, ax = plt.subplots()
+ax.bar(features, popularity_scores)
+plt.xticks(rotation=45)
+st.pyplot(fig)
 
 # load model
 file_path = file_path = "trained_pipe_knn.sav"
@@ -34,7 +45,7 @@ valence = st.number_input("valence")
 tempo = st.number_input("tempo")
 followers = st.number_input("followers")
 
-# new house with fake data
+# Create a DataFrame with the user input
 import pandas as pd
 new_song = pd.DataFrame({
     'artist':[artist],
