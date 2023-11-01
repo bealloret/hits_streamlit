@@ -17,9 +17,27 @@ features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 
             'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
 popularity_scores = [0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5]
 
+# Using pastel color palette
+pastel_colors = sns.color_palette("pastel", len(features))
+
 fig, ax = plt.subplots()
-ax.bar(features, popularity_scores)
-plt.xticks(rotation=45)
+bars = ax.bar(features, popularity_scores, color=pastel_colors)
+
+# Aligning the labels with the bars and setting smaller font size
+plt.xticks(rotation=45, ha="right", fontsize=8)
+plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
+
+# Removing frame and keeping only the x-axis
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+# Adding annotations to show the values when hovering over the bars
+for bar in bars:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center')
+
 st.pyplot(fig)
 
 # load model
