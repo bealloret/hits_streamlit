@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def display_c_page():
+def display_hit_creation_page():
     st.title("Set your music hit factory")
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
