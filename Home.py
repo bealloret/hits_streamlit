@@ -9,8 +9,20 @@ import numpy as np
 
 
 def display_home_page():
-    st.title("Welcome to the Music Hit Factory")
-    
+     # Define the HTML code for the icons
+    icon_html = """
+        <style>
+        .icon {
+           display: inline-block;
+           vertical-align: middle;
+    }
+    </style>
+    <h1>
+    <span class="icon">🎵</span> Welcome to the Music Hit Factory <span class="icon">⚙️</span> <span class="icon">🔩</span>
+    </h1>
+    """
+    # Display the icons with the title using the markdown method
+    st.markdown(icon_html, unsafe_allow_html=True)
     st.markdown("""
     ## Here you can test your ability to generate a music hit
     """)
