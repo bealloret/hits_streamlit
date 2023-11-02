@@ -16,9 +16,16 @@ def create_danceability_knob(danceability_value):
     theta = np.linspace(0, 2*np.pi, 100)
     r = danceability_value/100
     ax.plot(theta, np.full_like(theta, 0.8), color='lightgrey', linewidth=1)
-    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 0.8], color='r', linewidth=2)
+    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 0.8],  color='lightpink', linewidth=1))
 
-    ax.set_title('Danceability', y=1.1)
+    ax.set_title('Danceability', , y=1.2, fontsize=8)
+
+     # Adjusting the font size of the radial labels
+    ax.text(np.deg2rad(0), 0.85, '0', ha='center', va='center', fontsize=6)
+    ax.text(np.deg2rad(90), 0.85, '25', ha='center', va='center', fontsize=6)
+    ax.text(np.deg2rad(180), 0.85, '50', ha='center', va='center', fontsize=6)
+    ax.text(np.deg2rad(270), 0.85, '75', ha='center', va='center', fontsize=6)
+    ax.text(np.deg2rad(360), 0.85, '100', ha='center', va='center', fontsize=6)
 
     st.pyplot(fig)
 
