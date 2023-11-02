@@ -20,7 +20,7 @@ def display_home_page():
     }
     </style>
     <h1>
-    <span class="icon">🎵</span> Create your music hit <span class="icon">⚙️</span>
+    <span class="icon">🎵</span> Create your music hit <span class="icon">⚙️</span> <span class="icon">🔩</span>
     </h1>
     """
     # Display the icons with the title using the markdown method
