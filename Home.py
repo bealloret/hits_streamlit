@@ -10,12 +10,12 @@ import numpy as np
 
 def display_home_page():
     st.title("Welcome to the Music Hit Factory")
-    st.write("""
+    st.markdown("""
     ### Here you can test your ability to generate a music hit
     """)
 
     # Display the title in italic
-    st.markdown(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
+    st.write(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
 
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
@@ -38,7 +38,7 @@ def display_home_page():
     )
 
     # Display the sentence with the same size as the song title
-    st.markdown("## Look at the features of this song:")
+    st.write("## Look at the features of this song:")
 
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
