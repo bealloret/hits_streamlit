@@ -4,7 +4,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 
 def display_additional_page():
     danceability = 0.5  # Default value for danceability
@@ -23,15 +22,15 @@ def display_additional_page():
     followers = 0.2  # Default value for followers
     key = 0  # Default value for key
 
-    st.title("Create your music hit!")
+    st.title("Set your music hit factory")
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
 
     # Creating a sample plot for the example of popularity
-    features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness',
+    features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'loudness', 'mode', 'speechiness',
                 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
-    popularity_scores = [danceability, energy, explicit, duration_ms, year, key, loudness, mode, speechiness,
+    popularity_scores = [danceability, energy, explicit, duration_ms, year, loudness, mode, speechiness,
                          acousticness, instrumentalness, liveness, valence, tempo, followers]
 
     # Using pastel color palette
