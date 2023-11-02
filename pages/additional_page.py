@@ -80,7 +80,7 @@ def display_additional_page():
         'valence': [valence],
         'tempo': [tempo],
         'followers': [followers]
-    ])
+    })
 
 if __name__ == "__main__":
     display_additional_page()
