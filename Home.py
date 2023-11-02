@@ -68,84 +68,85 @@ def display_home_page():
 
     st.pyplot(fig)
 
-   # Load model
-file_path = "trained_pipe_knn.sav"
-# Specify the full path to the file
-loaded_model = pickle.load(open(file_path, 'rb'))
+    # Load model
+    file_path = "trained_pipe_knn.sav"
+    # Specify the full path to the file
+    loaded_model = pickle.load(open(file_path, 'rb'))
 
-artist = st.text_input("artist")
-genre = st.text_input("genre")
+    artist = st.text_input("artist")
+    genre = st.text_input("genre")
 
-st.write("Danceability:")
-danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Danceability:")
+    danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Energy:")
-energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Energy:")
+    energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Explicit:")
-explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
+    st.write("Explicit:")
+    explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
 
-st.write("Duration (ms):")
-duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
+    st.write("Duration (ms):")
+    duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
 
-st.write("Year:")
-year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
+    st.write("Year:")
+    year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
 
-st.write("Key:")
-key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
+    st.write("Key:")
+    key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
 
-st.write("Loudness:")
-loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
+    st.write("Loudness:")
+    loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
 
-st.write("Mode:")
-mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
+    st.write("Mode:")
+    mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
 
-st.write("Speechiness:")
-speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Speechiness:")
+    speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Acousticness:")
-acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Acousticness:")
+    acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Instrumentalness:")
-instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Instrumentalness:")
+    instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Liveness:")
-liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Liveness:")
+    liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Valence:")
-valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Valence:")
+    valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
 
-st.write("Tempo:")
-tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
+    st.write("Tempo:")
+    tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
 
-st.write("Followers:")
-followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
+    st.write("Followers:")
+    followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
 
-# Prediction
+    # Prediction
     # Create a DataFrame with the user input
-new_song = pd.DataFrame({
-        'artist':[artist],
+    new_song = pd.DataFrame({
+        'artist': [artist],
         'genre': [genre],
-        'danceability':[danceability],
-        'energy':[energy],
-        'explicit':[explicit],
+        'danceability': [danceability],
+        'energy': [energy],
+        'explicit': [explicit],
         'duration_ms': [duration_ms],
-        'year':[year],
-        'key':[key],
-        'loudness':[loudness],
-        'mode':[mode],
-        'speechiness':[speechiness],
-        'acousticness':[acousticness],
-        'instrumentalness':[instrumentalness],
-        'liveness':[liveness],
-        'valence':[valence],
-        'tempo':[tempo],
-        'followers':[followers]
-})
+        'year': [year],
+        'key': [key],
+        'loudness': [loudness],
+        'mode': [mode],
+        'speechiness': [speechiness],
+        'acousticness': [acousticness],
+        'instrumentalness': [instrumentalness],
+        'liveness': [liveness],
+        'valence': [valence],
+        'tempo': [tempo],
+        'followers': [followers]
+    })
 
-# prediction
-prediction = loaded_model.predict(new_song)
-st.write("The success of the song is:", prediction)
+    # prediction
+    prediction = loaded_model.predict(new_song)
+    st.write("The success of the song is:", prediction)
+
 
 if __name__ == "__main__":
     display_home_page()
