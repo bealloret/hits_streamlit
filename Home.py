@@ -36,7 +36,7 @@ def display_home_page():
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
              caption="Album Cover of I'm Good (Blue)",
-             width=200,
+             width=100,
              use_column_width=False,
              clamp=False,
              )
@@ -53,6 +53,17 @@ def display_home_page():
         unsafe_allow_html=True,
     )
 
+    def get_youtube_video(video_id):
+    return f'''
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{video_id}" 
+        frameborder="0" allowfullscreen></iframe>
+    '''
+    video_id = 'https://youtu.be/90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
+    st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
+
+
+
+    
     # Display the sentence 
     st.write("### Look at the features of this song:")
 
