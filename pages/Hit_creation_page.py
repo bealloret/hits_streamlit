@@ -5,7 +5,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def display_hit_creation_page():
-    st.title("Create your music hit")
+     # Define the HTML code for the icons
+    icon_html = """
+        <style>
+        .icon {
+           display: inline-block;
+           vertical-align: middle;
+    }
+    </style>
+    <h1>
+    <span class="icon">🎵</span> Create your music hit <span class="icon">⚙️</span> <span class="icon">🔩</span>
+    </h1>
+    """
+    # Display the icons with the title using the markdown method
+    st.markdown(icon_html, unsafe_allow_html=True)
+
+    
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
