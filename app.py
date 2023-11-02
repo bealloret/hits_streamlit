@@ -1,19 +1,17 @@
 # app.py
 
 import streamlit as st
-from home_page import main as home_page_main
-from additional_page import additional_page_main
-
-PAGES = {
-    "Home": home_page_main,
-    "Hit generation": make the music a hit,
-}
+from home_page import display_home_page
+from additional_page import display_additional_page
 
 def main():
     st.sidebar.title('Navigation')
-    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-    page = PAGES[selection]
-    page()
+    selection = st.sidebar.radio("Go to", ['Home Page', 'Set page'])
+
+    if selection == 'Home Page':
+        display_home_page()
+    elif selection == 'Additional Page':
+        display_additional_page()
 
 if __name__ == "__main__":
     main()
