@@ -11,8 +11,8 @@ def create_danceability_knob(danceability_value):
     fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(3,3))
     ax.set_theta_direction(-1)
     ax.set_theta_zero_location('N')
-    ax.set_rticks([0, 0.2, 0.4, 0.6, 0.8, 1.0], labels=[0, '', 40, '', 80, ''], fontsize=6)
     ax.set_rlim(0, 1)
+    ax.set_rticks([])
     ax.plot([np.radians(danceability_value), np.radians(danceability_value)], [0, 1], color='lightpink', linewidth=2)
     ax.set_title('Danceability', y=1.1, fontsize=10)
 
