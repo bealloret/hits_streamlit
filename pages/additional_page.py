@@ -46,6 +46,9 @@ def display_additional_page():
     # Create radio buttons for different feature sets
     feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
 
+    artist = st.text_input("artist")
+    genre = st.text_input("genre")
+
     # Change the labels and default values based on the selected feature set
     if feature_set == 'Set 1':
         features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year']
