@@ -6,7 +6,55 @@ import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Custom CSS for the volume control
+volume_css = """
+<style>
+.slider-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
 
+.slider {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    position: absolute;
+    left: 100px; /* Adjusted position for the slider */
+    top: 50px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+"""
+
+# Function to create a volume control for a specific feature
+def custom_volume_control(feature_name, feature_value):
+    st.markdown(volume_css, unsafe_allow_html=True)
+    st.markdown('<div class="slider-container">', unsafe_allow_html=True)
+    volume_level = st.slider(f"{feature_name}", min_value=0, max_value=100, value=feature_value, step=1, key=feature_name)
+    st.markdown('</div>', unsafe_allow_html=True)
+    st.write(f"Current {feature_name} level: {volume_level}")
 
 def display_home_page():
     st.title("Welcome to the music hit factory")
@@ -76,8 +124,9 @@ def display_home_page():
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
-    st.write("Danceability:")
-    danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+	   # Custom volume control for danceability
+    danceability_value = 50  # Replace this with the actual value
+    custom_volume_control("Danceability", danceability_value)
 
     st.write("Energy:")
     energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
