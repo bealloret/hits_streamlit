@@ -68,29 +68,60 @@ def display_home_page():
 
     st.pyplot(fig)
 
-    # Load model
-    file_path = "trained_pipe_knn.sav"
-    # Specify the full path to the file
-    loaded_model = pickle.load(open(file_path, 'rb'))
+   # Load model
+file_path = "trained_pipe_knn.sav"
+# Specify the full path to the file
+loaded_model = pickle.load(open(file_path, 'rb'))
 
-    artist = st.text_input("artist")
-    genre = st.text_input("genre")
-    danceability = st.number_input("danceability")
-    energy = st.number_input("energy")
-    explicit = st.number_input("explicit")
-    duration_ms = st.number_input("duration_ms")
-    year = st.number_input("year")
-    key = st.number_input("key")
-    loudness = st.number_input("loudness")
-    mode = st.number_input("mode")
-    speechiness = st.number_input("speechiness")
-    acousticness= st.number_input("acousticness")
-    instrumentalness =  st.number_input("instrumentalness")
-    liveness = st.number_input("liveness")
-    valence = st.number_input("valence")
-    tempo = st.number_input("tempo")
-    followers = st.number_input("followers")
+artist = st.text_input("artist")
+genre = st.text_input("genre")
 
+st.write("Danceability:")
+danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Energy:")
+energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Explicit:")
+explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
+
+st.write("Duration (ms):")
+duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
+
+st.write("Year:")
+year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
+
+st.write("Key:")
+key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
+
+st.write("Loudness:")
+loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
+
+st.write("Mode:")
+mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
+
+st.write("Speechiness:")
+speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Acousticness:")
+acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Instrumentalness:")
+instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Liveness:")
+liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Valence:")
+valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
+
+st.write("Tempo:")
+tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
+
+st.write("Followers:")
+followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
+
+# Prediction
     # Create a DataFrame with the user input
     import pandas as pd
     new_song = pd.DataFrame({
