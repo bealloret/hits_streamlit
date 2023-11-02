@@ -74,10 +74,7 @@ def display_additional_page():
         features = ['liveness', 'valence', 'tempo', 'followers']
     # Create input fields for the selected features
     for feature in features:
-        if feature == 'year' or feature == 'key' or feature == 'mode':
-            st.number_input(feature, key=feature)
-        else:
-            st.slider(feature, key=feature)
+            st.slider(feature, key=feature, value=0.5, min_value=0.0, max_value=1.0, step=0.01)
 
     # Create a DataFrame with the user inputs
     new_song = pd.DataFrame({
