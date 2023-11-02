@@ -82,4 +82,4 @@ def display_c_page():
     st.write(f"### Predicted popularity: {predicted_popularity}")
 
 if __name__ == "__main__":
-    display_additional_page()
+    display_hit_creation_page()
