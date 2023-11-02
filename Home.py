@@ -6,55 +6,20 @@ import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Custom CSS for the volume control
-volume_css = """
-<style>
-.slider-container {
-    width: 200px;
-    height: 200px;
-    position: relative;
-}
+def create_danceability_knob(danceability_value):
+    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(2,2))
+    ax.set_theta_direction(-1)
+    ax.set_theta_zero_location('N')
+    ax.set_rticks([])
 
-.slider {
-    -webkit-appearance: none;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: white;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity .2s;
-    position: absolute;
-    left: 100px; /* Adjusted position for the slider */
-    top: 50px;
-}
+    theta = np.linspace(0, 2*np.pi, 100)
+    r = danceability_value
+    ax.plot(theta, np.full_like(theta, 1), color='b', linewidth=2)
+    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 1], color='r', linewidth=2)
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
+    ax.set_title('Danceability', y=1.1)
 
-.slider::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-</style>
-"""
-
-# Function to create a volume control for a specific feature
-def custom_volume_control(feature_name, feature_value):
-    st.markdown(volume_css, unsafe_allow_html=True)
-    st.markdown('<div class="slider-container">', unsafe_allow_html=True)
-    volume_level = st.slider(f"{feature_name}", min_value=0, max_value=100, value=feature_value, step=1, key=feature_name)
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.write(f"Current {feature_name} level: {volume_level}")
+    st.pyplot(fig)
 
 def display_home_page():
     st.title("Welcome to the music hit factory")
@@ -124,9 +89,9 @@ def display_home_page():
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
-	   # Custom volume control for danceability
-    danceability_value = 50  # Replace this with the actual value
-    custom_volume_control("Danceability", danceability_value)
+	# Display the danceability knob
+    danceability_value = st.slider("Adjust danceability", 0, 100, 50, 1)
+    create_danceability_knob(danceability_value)
 
     st.write("Energy:")
     energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
