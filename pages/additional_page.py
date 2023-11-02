@@ -20,9 +20,9 @@ def display_additional_page():
     valence = 0.4  # Default value for valence
     tempo = 0.8  # Default value for tempo
     followers = 0.2  # Default value for followers
-    key = 0
+    key = 0  # Default value for key
 
-    st.title("Create your music hit")
+    st.title("Set your music hit factory")
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
@@ -30,7 +30,8 @@ def display_additional_page():
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness',
                 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
-    popularity_scores = [0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5, 0.7, 0.3, 0.6, 0.4, 0.8, 0.2, 0.5]
+    popularity_scores = [danceability, energy, explicit, duration_ms, year, key, loudness, mode, speechiness,
+                         acousticness, instrumentalness, liveness, valence, tempo, followers]
 
     # Using pastel color palette
     pastel_colors = sns.color_palette("pastel", len(features))
@@ -72,9 +73,35 @@ def display_additional_page():
         features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
     elif feature_set == 'Set 3':
         features = ['liveness', 'valence', 'tempo', 'followers']
+
     # Create input fields for the selected features
     for feature in features:
-            st.slider(feature, key=feature, value=0.5, min_value=0.0, max_value=1.0, step=0.01)
+        if feature == 'year' or feature == 'key' or feature == 'mode':
+            value = st.slider(feature, key=feature, value=0, min_value=0, max_value=100, step=1)
+        else:
+            value = st.slider(feature, key=feature, value=0.5, min_value=0.0, max_value=1.0, step=0.01)
+        popularity_scores[features.index(feature)] = value
+
+    # Recreate the bar plot with updated values
+    fig, ax = plt.subplots()
+    bars = ax.bar(features, popularity_scores, color=pastel_colors)
+
+    # Aligning the labels with the bars and setting smaller font size
+    plt.xticks(rotation=45, ha="right", fontsize=8)
+    plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
+
+    # Removing frame and keeping only the x-axis
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+
+    # Adding annotations to show the values when hovering over the bars
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center')
+
+    st.pyplot(fig)
 
     # Create a DataFrame with the user inputs
     new_song = pd.DataFrame({
