@@ -1,5 +1,5 @@
 import streamlit as st
-from home_page import display_home_page
+from Home import display_home_page
 from additional_page import display_additional_page
 
 def main():
