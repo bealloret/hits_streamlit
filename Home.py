@@ -59,7 +59,7 @@ def display_home_page():
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
 
     popularity_score = 100  # Replace with your actual popularity score
-    st.info(f"Popularity Score: {popularity_score}")
+    st.warning(f" This song has popularity score of {popularity_score}")
      
     # Display the sentence 
     st.write("##### Look at the features of this song:")
