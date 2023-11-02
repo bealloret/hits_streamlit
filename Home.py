@@ -57,15 +57,16 @@ def display_home_page():
         '''
     video_id = '90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
-     # Ask the user to guess the popularity score from 0 to 100
-     user_guess = st.number_input("Guess the popularity score (0-100)", min_value=0, max_value=100, step=1)
+     
+    # Ask the user to guess the popularity score from 0 to 100
+    user_guess = st.number_input("Guess the popularity score (0-100)", min_value=0, max_value=100, step=1)
 
      # Assuming 'popularity_score' is the variable containing the popularity score
-     popularity_score = 100  # Replace with your actual popularity score
+    popularity_score = 100  # Replace with your actual popularity score
 
      # Display the user's guess and the actual popularity score
-     st.write(f"Your guess: {user_guess}")
-     st.info(f"Actual Popularity Score: {popularity_score}")
+    st.write(f"Your guess: {user_guess}")
+    st.info(f"Actual Popularity Score: {popularity_score}")
      
     # Display the sentence 
     st.write("##### Look at the features of this song:")
