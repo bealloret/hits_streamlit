@@ -20,6 +20,7 @@ def display_additional_page():
     valence = 0.4  # Default value for valence
     tempo = 0.8  # Default value for tempo
     followers = 0.2  # Default value for followers
+    key = 0
 
     st.title("Set your music hit factory")
     st.write("""
