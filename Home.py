@@ -9,7 +9,7 @@ import numpy as np
 
 
 def display_home_page():
-    st.title("Welcome to the music hit factory")
+    st.title("Welcome to the Music Hit Factory")
     st.write("""
     ### Here you can test your ability to generate a music hit
     """)
