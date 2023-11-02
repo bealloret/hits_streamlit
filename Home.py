@@ -123,8 +123,7 @@ followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1
 
 # Prediction
     # Create a DataFrame with the user input
-    import pandas as pd
-    new_song = pd.DataFrame({
+new_song = pd.DataFrame({
         'artist':[artist],
         'genre': [genre],
         'danceability':[danceability],
@@ -142,11 +141,11 @@ followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1
         'valence':[valence],
         'tempo':[tempo],
         'followers':[followers]
-    })
+})
 
-    # prediction
-    prediction = loaded_model.predict(new_song)
-    st.write("The success of the song is:", prediction)
+# prediction
+prediction = loaded_model.predict(new_song)
+st.write("The success of the song is:", prediction)
 
 if __name__ == "__main__":
     display_home_page()
