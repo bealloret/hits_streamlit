@@ -77,7 +77,7 @@ def display_home_page():
     genre = st.text_input("genre")
 
     st.write("Danceability:")
-    danceabilty = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+    danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
 
 
     st.write("Energy:")
