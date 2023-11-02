@@ -7,16 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-def create_danceability_knob(danceability_value):
-    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(3,3))
-    ax.set_theta_direction(-1)
-    ax.set_theta_zero_location('N')
-    ax.set_rlim(0, 1)
-    ax.set_rticks([])
-    ax.plot([np.radians(danceability_value), np.radians(danceability_value)], [0, 1], color='lightpink', linewidth=2)
-    ax.set_title('Danceability', y=1.1, fontsize=10)
-
-    st.pyplot(fig)
 
 def display_home_page():
     st.title("Welcome to the music hit factory")
@@ -86,9 +76,9 @@ def display_home_page():
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
-	# Display the danceability knob
-    danceability_value = st.slider("Adjust danceability", 0, 100, 50, 1)
-    create_danceability_knob(danceability_value)
+    st.write("Danceability:")
+    energy = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+
 
     st.write("Energy:")
     energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
