@@ -9,15 +9,13 @@ import seaborn as sns
 
 
 def display_home_page():
-st.title("Welcome to the music hit factory")
-
-st.write("""
+         st.title("Welcome to the music hit factory")
+         
+         st.write("""
 ### Here you can test your hability to generate a music hit
-
 """)
-# Display the title in italic
+         # Display the title in italic
 st.markdown(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
-
 # Add the image of the album from a URL with rounded corners using CSS
 st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
          caption="Album Cover of I'm Good (Blue)",
@@ -25,8 +23,7 @@ st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2
          use_column_width=False,
          clamp=False,
          )
-
-# Add CSS style to the image
+ # Add CSS style to the image
 st.markdown(
     """
     <style>
