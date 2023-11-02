@@ -8,24 +8,13 @@ import seaborn as sns
 import numpy as np
 
 def create_danceability_knob(danceability_value):
-    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(1,1))
+    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(3,3))
     ax.set_theta_direction(-1)
     ax.set_theta_zero_location('N')
-    ax.set_rticks([])
-
-    theta = np.linspace(0, 2*np.pi, 100)
-    r = danceability_value/100
-    ax.plot(theta, np.full_like(theta, 0.8), color='lightgrey', linewidth=1)
-    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 0.8],  color='lightpink', linewidth=1)
-
-    ax.set_title('Danceability', y=1.2, fontsize=8)
-
-     # Adjusting the font size of the radial labels
-    ax.text(np.deg2rad(0), 0.85, '0', ha='center', va='center', fontsize=6)
-    ax.text(np.deg2rad(90), 0.85, '25', ha='center', va='center', fontsize=6)
-    ax.text(np.deg2rad(180), 0.85, '50', ha='center', va='center', fontsize=6)
-    ax.text(np.deg2rad(270), 0.85, '75', ha='center', va='center', fontsize=6)
-    ax.text(np.deg2rad(360), 0.85, '100', ha='center', va='center', fontsize=6)
+    ax.set_rticks([0, 0.2, 0.4, 0.6, 0.8, 1.0], labels=[0, '', 40, '', 80, ''], fontsize=6)
+    ax.set_rlim(0, 1)
+    ax.plot([np.radians(danceability_value), np.radians(danceability_value)], [0, 1], color='lightpink', linewidth=2)
+    ax.set_title('Danceability', y=1.1, fontsize=10)
 
     st.pyplot(fig)
 
