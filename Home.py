@@ -28,7 +28,7 @@ def display_home_page():
     """)
 
     # Display the title in italic
-    st.write(f"### *Look and listen to the hit by David Guetta and Bebe Rexha: I'm Good (Blue)*")
+    st.write(f"### *Look and listen to the hit by David Guetta and Bebe Rexha:*")
 
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
@@ -58,9 +58,11 @@ def display_home_page():
     video_id = '90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
 
-    
+    popularity_score = 100  # Replace with your actual popularity score
+    st.info(f"Popularity Score: {popularity_score}")
+     
     # Display the sentence 
-    st.write("### Look at the features of this song:")
+    st.write("##### Look at the features of this song:")
 
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
