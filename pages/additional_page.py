@@ -22,7 +22,7 @@ def display_additional_page():
     followers = 0.2  # Default value for followers
     key = 0
 
-    st.title("Set your music hit factory")
+    st.title("Create your music hit")
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
