@@ -58,7 +58,7 @@ def display_home_page():
              <iframe width="560" height="315" src="https://www.youtube.com/embed/{video_id}" 
              frameborder="0" allowfullscreen></iframe>
         '''
-    video_id = 'https://youtu.be/90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
+    video_id = '90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
 
     
