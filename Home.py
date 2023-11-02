@@ -37,8 +37,8 @@ def display_home_page():
         unsafe_allow_html=True,
     )
 
-    # Display the sentence with the same size as the song title
-    st.write("## Look at the features of this song:")
+    # Display the sentence 
+    st.write("# Look at the features of this song:")
 
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
