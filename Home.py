@@ -6,6 +6,9 @@ import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+
+def display_home_page():
 st.title("Welcome to the music hit factory")
 
 st.write("""
@@ -114,3 +117,6 @@ new_song = pd.DataFrame({
 # prediction
 prediction = loaded_model.predict(new_song)
 st.write("The success of the song is:", prediction)
+
+if __name__ == "__main__":
+    display_home_page()
