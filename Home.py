@@ -9,111 +9,113 @@ import seaborn as sns
 
 
 def display_home_page():
-         st.title("Welcome to the music hit factory")
-         
-         st.write("""
-### Here you can test your hability to generate a music hit
-""")
-         # Display the title in italic
-st.markdown(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
-# Add the image of the album from a URL with rounded corners using CSS
-st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
-         caption="Album Cover of I'm Good (Blue)",
-         width=200,
-         use_column_width=False,
-         clamp=False,
-         )
- # Add CSS style to the image
-st.markdown(
-    """
-    <style>
-        img {
-            border-radius: 12px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    st.title("Welcome to the music hit factory")
+    st.write("""
+    ### Here you can test your ability to generate a music hit
+    """)
 
-# Display the sentence with the same size as the song title
-st.markdown("## Look at the features of this song:")
+    # Display the title in italic
+    st.markdown(f"## *This is the hit by David Guetta: I'm Good (Blue)*")
 
-# Creating a sample plot for the example of popularity
-features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
-            'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
-popularity_scores = [0.561, 0.965, 1, 3, 2, 7, -3.673, 0, 0.0343, 0.00383, 0.000007, 0.371, 0.304, 128.04, 5]
+    # Add the image of the album from a URL with rounded corners using CSS
+    st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
+             caption="Album Cover of I'm Good (Blue)",
+             width=200,
+             use_column_width=False,
+             clamp=False,
+             )
 
-# Using pastel color palette
-pastel_colors = sns.color_palette("pastel", len(features))
+    # Add CSS style to the image
+    st.markdown(
+        """
+        <style>
+            img {
+                border-radius: 12px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
-fig, ax = plt.subplots()
-bars = ax.bar(features, popularity_scores, color=pastel_colors)
+    # Display the sentence with the same size as the song title
+    st.markdown("## Look at the features of this song:")
 
-# Aligning the labels with the bars and setting smaller font size
-plt.xticks(rotation=45, ha="right", fontsize=8)
-plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
+    # Creating a sample plot for the example of popularity
+    features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
+                'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
+    popularity_scores = [0.561, 0.965, 1, 3, 2, 7, -3.673, 0, 0.0343, 0.00383, 0.000007, 0.371, 0.304, 128.04, 5]
 
-# Removing frame and keeping only the x-axis
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_visible(False)
-ax.spines['bottom'].set_visible(False)
+    # Using pastel color palette
+    pastel_colors = sns.color_palette("pastel", len(features))
 
-# Adding annotations to show the values when hovering over the bars
-for bar in bars:
-    yval = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center')
+    fig, ax = plt.subplots()
+    bars = ax.bar(features, popularity_scores, color=pastel_colors)
 
-st.pyplot(fig)
+    # Aligning the labels with the bars and setting smaller font size
+    plt.xticks(rotation=45, ha="right", fontsize=8)
+    plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
 
-# load model
-file_path = file_path = "trained_pipe_knn.sav"
- # Specify the full path to the file
-loaded_model = pickle.load(open(file_path, 'rb'))
+    # Removing frame and keeping only the x-axis
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
 
-artist = st.text_input("artits")
-genre = st.text_input("genre")
-danceability = st.number_input("danceability")
-energy = st.number_input("energy")
-explicit = st.number_input("explicit")
-duration_ms = st.number_input("duration_ms")
-year = st.number_input("year")
-key = st.number_input("key")
-loudness = st.number_input("loudness")
-mode = st.number_input("mode")
-speechiness = st.number_input("speechiness")
-acousticness= st.number_input("acousticness")
-instrumentalness =  st.number_input("instrumentalness")
-liveness = st.number_input("liveness")
-valence = st.number_input("valence")
-tempo = st.number_input("tempo")
-followers = st.number_input("followers")
+    # Adding annotations to show the values when hovering over the bars
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center')
 
-# Create a DataFrame with the user input
-import pandas as pd
-new_song = pd.DataFrame({
-    'artist':[artist],
-    'genre': [genre],
-    'danceability':[danceability],
-    'energy':[energy],
-    'explicit':[explicit],
-    'duration_ms': [duration_ms],
-    'year':[year],
-    'key':[key],
-    'loudness':[loudness],
-    'mode':[mode],
-    'speechiness':[speechiness],
-    'acousticness':[acousticness],
-    'instrumentalness':[instrumentalness],
-    'liveness':[liveness],
-    'valence':[valence],
-    'tempo':[tempo],
-    'followers':[followers]
-})
+    st.pyplot(fig)
 
-# prediction
-prediction = loaded_model.predict(new_song)
-st.write("The success of the song is:", prediction)
+    # Load model
+    file_path = "trained_pipe_knn.sav"
+    # Specify the full path to the file
+    loaded_model = pickle.load(open(file_path, 'rb'))
+
+    artist = st.text_input("artist")
+    genre = st.text_input("genre")
+    danceability = st.number_input("danceability")
+    energy = st.number_input("energy")
+    explicit = st.number_input("explicit")
+    duration_ms = st.number_input("duration_ms")
+    year = st.number_input("year")
+    key = st.number_input("key")
+    loudness = st.number_input("loudness")
+    mode = st.number_input("mode")
+    speechiness = st.number_input("speechiness")
+    acousticness= st.number_input("acousticness")
+    instrumentalness =  st.number_input("instrumentalness")
+    liveness = st.number_input("liveness")
+    valence = st.number_input("valence")
+    tempo = st.number_input("tempo")
+    followers = st.number_input("followers")
+
+    # Create a DataFrame with the user input
+    import pandas as pd
+    new_song = pd.DataFrame({
+        'artist':[artist],
+        'genre': [genre],
+        'danceability':[danceability],
+        'energy':[energy],
+        'explicit':[explicit],
+        'duration_ms': [duration_ms],
+        'year':[year],
+        'key':[key],
+        'loudness':[loudness],
+        'mode':[mode],
+        'speechiness':[speechiness],
+        'acousticness':[acousticness],
+        'instrumentalness':[instrumentalness],
+        'liveness':[liveness],
+        'valence':[valence],
+        'tempo':[tempo],
+        'followers':[followers]
+    })
+
+    # prediction
+    prediction = loaded_model.predict(new_song)
+    st.write("The success of the song is:", prediction)
 
 if __name__ == "__main__":
     display_home_page()
