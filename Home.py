@@ -16,7 +16,7 @@ def create_danceability_knob(danceability_value):
     theta = np.linspace(0, 2*np.pi, 100)
     r = danceability_value/100
     ax.plot(theta, np.full_like(theta, 0.8), color='lightgrey', linewidth=1)
-    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 0.8],  color='lightpink', linewidth=1))
+    ax.plot([np.deg2rad(danceability_value), np.deg2rad(danceability_value)], [0, 0.8],  color='lightpink', linewidth=1)
 
     ax.set_title('Danceability', , y=1.2, fontsize=8)
 
