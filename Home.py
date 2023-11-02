@@ -5,6 +5,7 @@ import pandas as pd
 import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 def create_danceability_knob(danceability_value):
     fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(2,2))
