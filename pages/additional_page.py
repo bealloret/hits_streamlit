@@ -7,19 +7,19 @@ import seaborn as sns
 
 def display_additional_page():
      danceability = 0.5  # Default value for danceability
-    energy = 0.7  # Default value for energy
-    explicit = 0.3  # Default value for explicit
-    duration_ms = 0.6  # Default value for duration_ms
-    year = 0.4  # Default value for year
-    loudness = 0.8  # Default value for loudness
-    mode = 0.2  # Default value for mode
-    speechiness = 0.5  # Default value for speechiness
-    acousticness = 0.7  # Default value for acousticness
-    instrumentalness = 0.3  # Default value for instrumentalness
-    liveness = 0.6  # Default value for liveness
-    valence = 0.4  # Default value for valence
-    tempo = 0.8  # Default value for tempo
-    followers = 0.2  # Default value for followers
+     energy = 0.7  # Default value for energy
+     explicit = 0.3  # Default value for explicit
+     duration_ms = 0.6  # Default value for duration_ms
+     year = 0.4  # Default value for year
+     loudness = 0.8  # Default value for loudness
+     mode = 0.2  # Default value for mode
+     speechiness = 0.5  # Default value for speechiness
+     acousticness = 0.7  # Default value for acousticness
+     instrumentalness = 0.3  # Default value for instrumentalness
+     liveness = 0.6  # Default value for liveness
+     valence = 0.4  # Default value for valence
+     tempo = 0.8  # Default value for tempo
+     followers = 0.2  # Default value for followers
     
     st.title("Set your music hit factory")
     st.write("""
