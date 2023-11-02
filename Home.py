@@ -11,27 +11,12 @@ import numpy as np
 def display_home_page():
     st.title("Welcome to the Music Hit Factory")
     
-    # Define the HTML code for the icons
-    icon_html = """
-        <style>
-        .icon {
-           display: inline-block;
-           vertical-align: middle;
-    }
-    </style>
-    <h1>
-    <span class="icon">🎵</span> Create your music hit <span class="icon">⚙️</span> <span class="icon">🔩</span>
-    </h1>
-    """
-    # Display the icons with the title using the markdown method
-    st.markdown(icon_html, unsafe_allow_html=True)
-    
     st.markdown("""
     ## Here you can test your ability to generate a music hit
     """)
 
     # Display the title in italic
-    st.write(f"### *This is the hit by David Guetta: I'm Good (Blue)*")
+    st.write(f"### *Look and listen to the hit by David Guetta and Bebe Rexha: I'm Good (Blue)*")
 
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
