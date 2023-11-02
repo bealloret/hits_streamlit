@@ -79,7 +79,7 @@ def display_additional_page():
 
     # Display the predicted popularity
     predicted_popularity = loaded_model.predict(new_song)
-    st.write(f"Predicted popularity: {predicted_popularity}",  font_size=20)
+    st.write(f"Predicted popularity: {predicted_popularity}",  font_size=200)
 
 if __name__ == "__main__":
     display_additional_page()
