@@ -99,7 +99,7 @@ def display_hit_creation_page():
         'liveness': [feature_values.get('liveness', 0.4)],  # Default value for liveness
         'valence': [feature_values.get('valence', 0.8)],  # Default value for valence
         'tempo': [feature_values.get('tempo', 0.2)],  # Default value for tempo
-        'followers': [feature_values.get('followers', 0.5)]  # Default value for followers
+        'followers': [feature_values.get('followers.total', 0.5)]  # Default value for followers
     })
 
     # Display the predicted popularity
