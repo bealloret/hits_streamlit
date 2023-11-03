@@ -4,26 +4,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-def convert_to_custom_label(label):
-    labels_map = {
-        'High': 'Smash Hit!',
-        'Moderate': 'Moderate Hit!',
-        'Low': 'Meh… okay.',
-        'Very Low': 'Nobody Cares. Try Again!'
-    }
-    label_str = str(label)  # Convert the label to a string
-    print(f"Label string: {label_str}")  # Print the label string for debugging
-    
-    if label_str in labels_map:
-        result = labels_map[label_str]  # Use the string label for lookup in the dictionary
-        print(f"Result: {result}")  # Print the result for debugging
-        return result
-    else:
-        print("Label not found in the dictionary. Printing label and dictionary for further inspection.")
-        print(f"Label: {label}")
-        print(f"Dictionary keys: {labels_map.keys()}")
-        return 'Undefined'
      
 def display_hit_creation_page():
      # Define the HTML code for the icons
@@ -127,7 +107,6 @@ def display_hit_creation_page():
 
     # Display the predicted popularity
     predicted_popularity_label = loaded_model.predict(new_song)
-    custom_label = convert_to_custom_label(predicted_popularity_label)
     st.write(f"### Predicted popularity: {custom_label}")
 
 if __name__ == "__main__":
