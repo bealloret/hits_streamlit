@@ -102,8 +102,12 @@ def display_hit_creation_page():
         'followers': [feature_values.get('followers', 0.5)]  # Default value for followers
     })
 
-    # Adjust the column name to match the name in the model file
+    # Adjust the column names to match the names in the model file
     new_song.rename(columns={'followers': 'followers.total'}, inplace=True)
+    new_song.rename(columns={'genre': 'track_genre'}, inplace=True)
+    new_song['album_name'] = ''  # Add an empty column for album_name
+    new_song['time_signature'] = 0  # Add a default value for time_signature
+
 
     # Display the predicted popularity
     predicted_popularity_label = loaded_model.predict(new_song)
