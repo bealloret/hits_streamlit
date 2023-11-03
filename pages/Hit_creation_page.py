@@ -12,7 +12,9 @@ def convert_to_custom_label(label):
         'Low': 'Meh… okay.',
         'Very Low': 'Nobody Cares. Try Again!'
     }
-    return labels_map.get(label, 'Undefined')
+    label_str = str(label)  # Convert the label to a string
+    return labels_map.get(label_str, 'Undefined')  # Use the string label for lookup in the dictionary
+
      
 def display_hit_creation_page():
      # Define the HTML code for the icons
