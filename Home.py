@@ -113,7 +113,7 @@ def display_home_page():
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
-     st.markdown('**Danceability:**')
+    st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing. Ranges from 0.0 (least danceable) to 1.0 (most danceable).")
     danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
 
