@@ -47,11 +47,11 @@ def display_hit_creation_page():
 
     # Change the labels and default values based on the selected feature set
     if feature_set == 'Set 1':
-        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year']
+        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'time_signature']
     elif feature_set == 'Set 2':
         features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
     elif feature_set == 'Set 3':
-        features = ['liveness', 'valence', 'tempo', 'followers']
+        features = ['liveness', 'valence', 'tempo', 'followers', 'genre', 'album_name']
 
     # Create input fields for the selected features
     feature_values = {}
@@ -99,12 +99,15 @@ def display_hit_creation_page():
         'liveness': [feature_values.get('liveness', 0.4)],  # Default value for liveness
         'valence': [feature_values.get('valence', 0.8)],  # Default value for valence
         'tempo': [feature_values.get('tempo', 0.2)],  # Default value for tempo
+        'album_name':[album_name],
+        'time_signature':[feature_values.get('time_signature', 4)],
         'followers': [feature_values.get('followers', 0.5)]  # Default value for followers
     })
 
     # Adjust the column names to match the names in the model file
     new_song.rename(columns={'followers': 'followers.total'}, inplace=True)
     new_song.rename(columns={'genre': 'track_genre'}, inplace=True)
+    new_song.rename(columns={'artist':'artists'}, inplace=True)
     new_song['album_name'] = ''  # Add an empty column for album_name
     new_song['time_signature'] = 0  # Add a default value for time_signature
 
