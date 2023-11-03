@@ -12,12 +12,18 @@ def convert_to_custom_label(label):
         'Low': 'Meh… okay.',
         'Very Low': 'Nobody Cares. Try Again!'
     }
-    label_str = str(label)  # Convert the label to a string
+     label_str = str(label)  # Convert the label to a string
     print(f"Label string: {label_str}")  # Print the label string for debugging
-    result = labels_map.get(label_str, 'Undefined')  # Use the string label for lookup in the dictionary
-    print(f"Result: {result}")  # Print the result for debugging
-    return result
-
+    
+    if label_str in labels_map:
+        result = labels_map[label_str]  # Use the string label for lookup in the dictionary
+        print(f"Result: {result}")  # Print the result for debugging
+        return result
+    else:
+        print("Label not found in the dictionary. Printing label and dictionary for further inspection.")
+        print(f"Label: {label}")
+        print(f"Dictionary keys: {labels_map.keys()}")
+        return 'Undefined'
      
 def display_hit_creation_page():
      # Define the HTML code for the icons
