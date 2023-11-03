@@ -44,6 +44,8 @@ def display_hit_creation_page():
 
     artist = st.text_input("artist")
     genre = st.text_input("genre")
+    album_name = st.text_input("album_name")  # Collect input for album_name
+
 
     # Change the labels and default values based on the selected feature set
     if feature_set == 'Set 1':
