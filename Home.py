@@ -61,7 +61,7 @@ def display_home_page():
 
      
     # Ask the user to guess the popularity score from 0 to 100
-    user_guess = st.number_input("Guess the popularity score (0-100)", min_value=0, max_value=100, step=1)
+    user_guess = st.number_input("Can you guess the popularity score (0-100) of this hit?", min_value=0, max_value=100, step=1)
 
      
      
@@ -69,10 +69,12 @@ def display_home_page():
     popularity_score = 98  # Replace with your actual popularity score
 
 
-     
      # Display the user's guess and the actual popularity score
     if st.button("Reveal Popularity Score"):
-         st.info(f"Actual Popularity Score: {popularity_score}")
+        st.write(f"Your guess: {user_guess}")
+        st.markdown("<br>", unsafe_allow_html=True)  # Add line break
+        st.info(f"Actual Popularity Score: {popularity_score}"
+
      
     # Display the sentence 
     st.write("##### Look at the features of this song:")
