@@ -103,7 +103,7 @@ def display_hit_creation_page():
     })
 
     # Adjust the column name to match the name in the model file
-    new_song.rename(columns={'follower': 'followers.total'}, inplace=True)
+    new_song.rename(columns={'followers': 'followers.total'}, inplace=True)
 
     # Display the predicted popularity
     predicted_popularity_label = loaded_model.predict(new_song)
