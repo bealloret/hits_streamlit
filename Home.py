@@ -28,11 +28,11 @@ def display_home_page():
     """)
 
     # Display the title in italic
-    st.write(f"### *Look and listen to the hit by David Guetta and Bebe Rexha:*")
+    st.write(f"### *Look and listen to the hit*")
 
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
-             caption="Album Cover of I'm Good (Blue)",
+             caption="Album Cover of I'm Good (Blue) by David Guetta and Bebe Rexha",
              width=100,
              use_column_width=False,
              clamp=False,
@@ -57,13 +57,19 @@ def display_home_page():
         '''
     video_id = '90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
+
+
      
     # Ask the user to guess the popularity score from 0 to 100
     user_guess = st.number_input("Guess the popularity score (0-100)", min_value=0, max_value=100, step=1)
 
+     
+     
      # Assuming 'popularity_score' is the variable containing the popularity score
-    popularity_score = 100  # Replace with your actual popularity score
+    popularity_score = 98  # Replace with your actual popularity score
 
+
+     
      # Display the user's guess and the actual popularity score
     if st.button("Reveal Popularity Score"):
          st.info(f"Actual Popularity Score: {popularity_score}")
