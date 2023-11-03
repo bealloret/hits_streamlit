@@ -74,9 +74,8 @@ def display_home_page():
     if st.button("Reveal Popularity Score"):
         st.write(f"Your guess: {user_guess}")
         st.markdown("<br>", unsafe_allow_html=True)  # Add line break
-        st.info(f"Actual Popularity Score: {popularity_score}"
-
-     
+        st.info(f"Actual Popularity Score: {popularity_score}")
+    
     # Display the sentence 
     st.write("##### Look at the features of this song:")
 
