@@ -49,7 +49,7 @@ def display_hit_creation_page():
     # Create input fields for the selected features
     feature_values = {}
     for feature in features:
-        if feature == 'year' or feature == 'key' or feature == 'mode':
+        if feature == 'key' or feature == 'mode':
             feature_values[feature] = st.number_input(feature, key=feature)
         else:
             feature_values[feature] = st.slider(feature, key=feature)
@@ -82,7 +82,7 @@ def display_hit_creation_page():
         'energy': [feature_values.get('energy', 0.7)],  # Default value for energy
         'explicit': [feature_values.get('explicit', 0.3)],  # Default value for explicit
         'duration_ms': [feature_values.get('duration_ms', 0.6)],  # Default value for duration_ms
-        'year': [st.slider("year", min_value=2000, max_value=2022, value=feature_values.get('year', 2000))],
+        'year': [feature_values.get('year', 2000))],
         'key': [feature_values.get('key', 0.8)],  # Default value for key
         'loudness': [feature_values.get('loudness', 0.2)],  # Default value for loudness
         'mode': [feature_values.get('mode', 0.5)],  # Default value for mode
