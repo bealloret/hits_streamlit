@@ -58,16 +58,17 @@ def display_home_page():
     video_id = '90RLzVUuXe4?si=pvocMgI6Shj_KiXZ'  # Replace with your desired YouTube video ID
     st.markdown(get_youtube_video(video_id), unsafe_allow_html=True)
 
+     # Add space after the video
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-     
     # Ask the user to guess the popularity score from 0 to 100
     user_guess = st.number_input("Can you guess the popularity score (0-100) of this hit?", min_value=0, max_value=100, step=1)
-
-     
-     
-     # Assuming 'popularity_score' is the variable containing the popularity score
+    
+    # Add space after the user's guess
+    st.markdown("<br>", unsafe_allow_html=True)
+      
+    # Assuming 'popularity_score' is the variable containing the popularity score
     popularity_score = 98  # Replace with your actual popularity score
-
 
      # Display the user's guess and the actual popularity score
     if st.button("Reveal Popularity Score"):
