@@ -113,63 +113,63 @@ def display_home_page():
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
-    st.write("Danceability:")
+     st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing. Ranges from 0.0 (least danceable) to 1.0 (most danceable).")
     danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Energy:")
+    st.markdown('**Energy:**')
     st.write("Represents the energy of the track. Ranges from 0.0 (low energy) to 1.0 (high energy).")
     energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Explicit:")
+    st.markdown('**Explicit:**')
     st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
     explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
 
-    st.write("Duration (ms):")
+    st.markdown('**Duration (ms):**')
     st.write("Represents the duration of the track in milliseconds.")
     duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
 
-    st.write("Year:")
+    st.markdown('**Year:**')
     st.write("Represents the release year of the track. Ranges from 1920 to 2023.")
     year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
 
-    st.write("Key:")
+    st.markdown('**Key:**')
     st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
     key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
 
-    st.write("Loudness:")
+    st.markdown('**Loudness:**')
     st.write("Represents the overall loudness of the track in decibels (dB). Ranges from -60.0 to 0.0.")
     loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
 
-    st.write("Mode:")
+    st.markdown('**Mode:**')
     st.write("Represents the modality of the track. 0 represents minor and 1 represents major.")
     mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
 
-    st.write("Speechiness:")
+    st.markdown('**Speechiness:**')
     st.write("Represents the presence of spoken words in the track. Ranges from 0.0 to 1.0.")
     speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Acousticness:")
+    st.markdown('**Acousticness:**')
     st.write("Represents the acousticness of the track. Ranges from 0.0 (not acoustic) to 1.0 (acoustic).")
     acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Instrumentalness:")
+    st.markdown('**Instrumentalness:**')
     st.write("Represents the instrumentalness of the track. Ranges from 0.0 to 1.0.")
     instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Liveness:")
+    st.markdown('**Liveness:**')
     st.write("Represents the presence of a live audience in the track. Ranges from 0.0 to 1.0.")
     liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Valence:")
+    st.markdown('**Valence:**')
     st.write("Represents the musical positiveness conveyed by a track. Ranges from 0.0 to 1.0.")
     valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
 
-    st.write("Tempo:")
+    st.markdown('**Tempo:**')
     st.write("Represents the overall estimated tempo of the track in beats per minute (BPM). Ranges from 0 to 200.")
     tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
 
-    st.write("Followers:")
+    st.markdown('**Followers:**')
     st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
     followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
 
