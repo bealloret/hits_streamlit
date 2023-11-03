@@ -4,6 +4,16 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+def convert_to_custom_label(label):
+    labels_map = {
+        'High': 'Smash Hit!',
+        'Moderate': 'Moderate Hit!',
+        'Low': 'Meh… okay.',
+        'Very Low': 'Nobody Cares. Try Again!'
+    }
+    return labels_map.get(label, 'Undefined')
+     
 def display_hit_creation_page():
      # Define the HTML code for the icons
     icon_html = """
@@ -93,8 +103,9 @@ def display_hit_creation_page():
     })
 
     # Display the predicted popularity
-    predicted_popularity = loaded_model.predict(new_song)
-    st.write(f"### Predicted popularity: {predicted_popularity}")
+    predicted_popularity_label = loaded_model.predict(new_song)
+    custom_label = convert_to_custom_label(predicted_popularity_label)
+    st.write(f"### Predicted popularity: {custom_label}")
 
 if __name__ == "__main__":
     display_hit_creation_page()
