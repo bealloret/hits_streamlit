@@ -32,7 +32,7 @@ def display_home_page():
 
     # Add the image of the album from a URL with rounded corners using CSS
     st.image("https://t2.genius.com/unsafe/249x249/https%3A%2F%2Fimages.genius.com%2Ff4eacd64dc39815cf3b789fc21b3e3b2.1000x1000x1.png", 
-             caption="Album Cover of I'm Good (Blue) by David Guetta and Bebe Rexha",
+             caption="I'm Good (Blue) by David Guetta and Bebe Rexha",
              width=100,
              use_column_width=False,
              clamp=False,
@@ -109,85 +109,69 @@ def display_home_page():
 
     st.pyplot(fig)
 
-    # Load model
-    file_path = "trained_pipe_knn.sav"
-    # Specify the full path to the file
-    loaded_model = pickle.load(open(file_path, 'rb'))
 
     artist = st.text_input("artist")
     genre = st.text_input("genre")
 
     st.write("Danceability:")
+    st.write("Represents how suitable a track is for dancing. Ranges from 0.0 (least danceable) to 1.0 (most danceable).")
     danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
 
-
     st.write("Energy:")
+    st.write("Represents the energy of the track. Ranges from 0.0 (low energy) to 1.0 (high energy).")
     energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Explicit:")
+    st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
     explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
 
     st.write("Duration (ms):")
+    st.write("Represents the duration of the track in milliseconds.")
     duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
 
     st.write("Year:")
+    st.write("Represents the release year of the track. Ranges from 1920 to 2023.")
     year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
 
     st.write("Key:")
+    st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
     key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
 
     st.write("Loudness:")
+    st.write("Represents the overall loudness of the track in decibels (dB). Ranges from -60.0 to 0.0.")
     loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
 
     st.write("Mode:")
+    st.write("Represents the modality of the track. 0 represents minor and 1 represents major.")
     mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
 
     st.write("Speechiness:")
+    st.write("Represents the presence of spoken words in the track. Ranges from 0.0 to 1.0.")
     speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Acousticness:")
+    st.write("Represents the acousticness of the track. Ranges from 0.0 (not acoustic) to 1.0 (acoustic).")
     acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Instrumentalness:")
+    st.write("Represents the instrumentalness of the track. Ranges from 0.0 to 1.0.")
     instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Liveness:")
+    st.write("Represents the presence of a live audience in the track. Ranges from 0.0 to 1.0.")
     liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Valence:")
+    st.write("Represents the musical positiveness conveyed by a track. Ranges from 0.0 to 1.0.")
     valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
 
     st.write("Tempo:")
+    st.write("Represents the overall estimated tempo of the track in beats per minute (BPM). Ranges from 0 to 200.")
     tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
 
     st.write("Followers:")
+    st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
     followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
-
-    # Prediction
-    # Create a DataFrame with the user input
-    new_song = pd.DataFrame({
-        'artist': [artist],
-        'genre': [genre],
-        'danceability': [danceability],
-        'energy': [energy],
-        'explicit': [explicit],
-        'duration_ms': [duration_ms],
-        'year': [year],
-        'key': [key],
-        'loudness': [loudness],
-        'mode': [mode],
-        'speechiness': [speechiness],
-        'acousticness': [acousticness],
-        'instrumentalness': [instrumentalness],
-        'liveness': [liveness],
-        'valence': [valence],
-        'tempo': [tempo],
-        'followers': [followers]
-    })
-
-    # prediction
-    prediction = loaded_model.predict(new_song)
-    st.write("The success of the song is:", prediction)
 
 
 if __name__ == "__main__":
