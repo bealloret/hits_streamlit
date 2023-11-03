@@ -107,7 +107,7 @@ def display_hit_creation_page():
 
     # Display the predicted popularity
     predicted_popularity_label = loaded_model.predict(new_song)
-    st.write(f"### Predicted popularity: {custom_label}")
+    st.write(f"### Predicted popularity: {predicted_popularity_label}")
 
 if __name__ == "__main__":
     display_hit_creation_page()
