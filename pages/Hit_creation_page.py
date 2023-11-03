@@ -13,7 +13,10 @@ def convert_to_custom_label(label):
         'Very Low': 'Nobody Cares. Try Again!'
     }
     label_str = str(label)  # Convert the label to a string
-    return labels_map.get(label_str, 'Undefined')  # Use the string label for lookup in the dictionary
+    print(f"Label string: {label_str}")  # Print the label string for debugging
+    result = labels_map.get(label_str, 'Undefined')  # Use the string label for lookup in the dictionary
+    print(f"Result: {result}")  # Print the result for debugging
+    return result
 
      
 def display_hit_creation_page():
