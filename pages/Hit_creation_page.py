@@ -12,7 +12,7 @@ def convert_to_custom_label(label):
         'Low': 'Meh… okay.',
         'Very Low': 'Nobody Cares. Try Again!'
     }
-     label_str = str(label)  # Convert the label to a string
+    label_str = str(label)  # Convert the label to a string
     print(f"Label string: {label_str}")  # Print the label string for debugging
     
     if label_str in labels_map:
