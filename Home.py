@@ -186,7 +186,7 @@ def display_set_2():
 
     st.markdown('**Tempo:**')
     st.write("Represents the overall estimated tempo of the track in beats per minute (BPM).")
-    tempo = st.slider("Example tempo. Range: from 0 to 200.", min_value=0, max_value=200, value = 128.040)
+    tempo = st.slider("Example tempo. Range: from 0 to 200.", min_value=0.0, max_value=200.0, value = 128.040)
 
     st.markdown('**Time-signature:**')
     st.write("Represents the number of beats in each measure.")
