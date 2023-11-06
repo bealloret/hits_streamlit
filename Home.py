@@ -114,27 +114,27 @@ def display_home_page():
     popularity_scores_2 = [175238, 7, -3.673, 128.040, 4]
    
    # Using pastel color palette
-   pastel_colors = sns.color_palette("pastel", len(features))
+    pastel_colors = sns.color_palette("pastel", len(features))
 
-   fig, ax = plt.subplots()
-   bars = ax.barh(features_2, popularity_scores_2, color=pastel_colors)
+    fig, ax = plt.subplots()
+    bars = ax.barh(features_2, popularity_scores_2, color=pastel_colors)
 
   # Aligning the labels with the bars and setting smaller font size
-  plt.xticks(fontsize=8)
-  plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    plt.xticks(fontsize=8)
+    plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
 
  # Removing frame and keeping only the y-axis
-  ax.spines['top'].set_visible(False)
-  ax.spines['right'].set_visible(False)
-  ax.spines['left'].set_visible(False)
-  ax.spines['bottom'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
 
  # Adding annotations to show the values when hovering over the bars
-for bar in bars:
-    xval = bar.get_width()
-    ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
+    for bar in bars:
+       xval = bar.get_width()
+       ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
 
-plt.show()
+   plt.show()
 
 
     artist = st.text_input("artist")
