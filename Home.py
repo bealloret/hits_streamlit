@@ -114,11 +114,11 @@ def display_home_page():
 
     st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing.")
-    danceability = st.slider("Value example. Ranges from 0.0 (least danceable) to 1.0 (most danceable).", min_value=0.0, value=0.561)
+    danceability = st.slider("Value example. Range: from 0.0 (least danceable) to 1.0 (most danceable).", min_value=0.0, value=0.561)
 
     st.markdown('**Energy:**')
     st.write("Represents the energy of the track.")
-    energy = st.slider("Value example. Ranges from 0.0 (low energy) to 1.0 (high energy).", min_value=0.0, max_value=1.0, value=0.965)
+    energy = st.slider("Value example. Range: from 0.0 (low energy) to 1.0 (high energy).", min_value=0.0, max_value=1.0, value=0.965)
 
     st.markdown('**Explicit:**')
     st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
