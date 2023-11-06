@@ -247,5 +247,3 @@ if __name__ == "__main__":
             display_hit_creation_page()
     else:
         display_home_page()
-if __name__ == "__main__":
-    display_home_page()
