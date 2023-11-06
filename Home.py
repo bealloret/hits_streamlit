@@ -83,14 +83,22 @@ def display_home_page():
     st.write("##### Look at the features of this song:")
 
     # Add space after
-    st.markdown("<br>", unsafe_allow_html=True) 
+    st.markdown("<br>", unsafe_allow_html=True)
 
-     # Let the user pick a set of features
+    # Let the user pick a set of features
     feature_set = st.selectbox("Choose a set of features", ['Set 1', 'Set 2', 'Set 3'])
 
-    # Change the labels and default values based on the selected feature set
+    # Display the selected set of features and corresponding graph
     if feature_set == 'Set 1':
-         st.markdown('**Danceability:**')
+        display_set_1()
+    elif feature_set == 'Set 2':
+        display_set_2()
+    elif feature_set == 'Set 3':
+        display_set_3()
+
+def display_set_1():
+    # Display the set 1 features and graph
+     st.markdown('**Danceability:**')
          st.write("Represents how suitable a track is for dancing.")
          danceability = st.slider("Example value. Range: from 0.0 (least danceable) to 1.0 (most danceable).", min_value=0.0, value=0.561)
          
@@ -147,16 +155,18 @@ def display_home_page():
         ax.spines['left'].set_visible(False)
         ax.spines['bottom'].set_visible(False)
 
-        # Adding annotations to show the values when hovering over the bars
+         # Adding annotations to show the values when hovering over the bars
         for bar in bars:
             yval = bar.get_height()
              ax.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center')
 
         st.pyplot(fig)
 
+    pass
 
-   elif feature_set == 'Set 2':
-        st.write("Represents the duration of the track in milliseconds.")
+def display_set_2():
+    # Display the set 2 features and graph
+     st.write("Represents the duration of the track in milliseconds.")
         duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
     
         st.markdown('**Key:**')
@@ -200,11 +210,14 @@ def display_home_page():
 
         st.pyplot(fig2)
 
-    elif feature_set == 'Set 3':
-        artist = st.text_input("artist")
-        genre = st.text_input("genre")
+    pass
 
-   
+def display_set_3():
+    # Display the set 3 features and graph
+      artist = st.text_input("artist")
+      genre = st.text_input("genre")
+    pass
 
+     
 if __name__ == "__main__":
     display_home_page()
