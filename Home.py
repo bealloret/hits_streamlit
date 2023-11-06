@@ -215,7 +215,7 @@ def display_set_2():
     # Adding annotations to show the values when hovering over the bars
     for bar in bars2:
         xval = bar.get_width()
-        ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
+        ax2.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
 
     st.pyplot(fig2)
 
