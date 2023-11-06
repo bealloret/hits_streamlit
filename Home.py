@@ -84,6 +84,15 @@ def display_home_page():
     # Add space after
     st.markdown("<br>", unsafe_allow_html=True) 
 
+    # Change the labels and default values based on the selected feature set
+    if feature_set == 'Set 1':
+        features = ['danceability', 'energy', 'explicit', 'mode', 'speechiness', 
+                'acousticness', 'instrumentalness', 'liveness', 'valence']
+    elif feature_set == 'Set 2':
+        features = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature', 'followers_mill']
+    elif feature_set == 'Set 3':
+        features = ['artist', 'genre'] 
+
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'mode', 'speechiness', 
                 'acousticness', 'instrumentalness', 'liveness', 'valence']
