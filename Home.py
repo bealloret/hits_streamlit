@@ -109,31 +109,6 @@ def display_home_page():
 
     st.pyplot(fig)
 
-    # Creating a sample plot for the example of popularity
-    features2 = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature', 'followers_mill']
-    popularity_scores2 = [2.92, 7, -3.673, 128.040, 4, 26]
-
-    fig2, ax2 = plt.subplots()
-    bars2 = ax2.barh(features2, popularity_scores2, color=pastel_colors)
-
-
- # Removing frame and keeping only the y-axis
-    ax2.spines['top'].set_visible(False)
-    ax2.spines['right'].set_visible(False)
-    ax2.spines['left'].set_visible(False)
-    ax2.spines['bottom'].set_visible(False)
-
- # Adding annotations to show the values when hovering over the bars
-    for bar in bars2:
-       xval = bar.get_width()
-       ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
-
-    st.pyplot(fig2)
-
-
-    artist = st.text_input("artist")
-    genre = st.text_input("genre")
-
     st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing. Ranges from 0.0 (least danceable) to 1.0 (most danceable).")
     danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
@@ -145,22 +120,6 @@ def display_home_page():
     st.markdown('**Explicit:**')
     st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
     explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
-
-    st.markdown('**Duration (ms):**')
-    st.write("Represents the duration of the track in milliseconds.")
-    duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
-
-    st.markdown('**Year:**')
-    st.write("Represents the release year of the track. Ranges from 1920 to 2023.")
-    year = st.slider("Adjust year", min_value=1920, max_value=2023, step=1)
-
-    st.markdown('**Key:**')
-    st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
-    key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
-
-    st.markdown('**Loudness:**')
-    st.write("Represents the overall loudness of the track in decibels (dB). Ranges from -60.0 to 0.0.")
-    loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
 
     st.markdown('**Mode:**')
     st.write("Represents the modality of the track. 0 represents minor and 1 represents major.")
@@ -186,6 +145,44 @@ def display_home_page():
     st.write("Represents the musical positiveness conveyed by a track. Ranges from 0.0 to 1.0.")
     valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
 
+
+    # Creating a sample plot for the example of popularity
+    features2 = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature', 'followers_mill']
+    popularity_scores2 = [2.92, 7, -3.673, 128.040, 4, 26]
+
+    fig2, ax2 = plt.subplots()
+    bars2 = ax2.barh(features2, popularity_scores2, color=pastel_colors)
+
+
+ # Removing frame and keeping only the y-axis
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    ax2.spines['left'].set_visible(False)
+    ax2.spines['bottom'].set_visible(False)
+
+ # Adding annotations to show the values when hovering over the bars
+    for bar in bars2:
+       xval = bar.get_width()
+       ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
+
+    st.pyplot(fig2)
+
+
+    artist = st.text_input("artist")
+    genre = st.text_input("genre")
+
+    st.markdown('**Duration (ms):**')
+    st.write("Represents the duration of the track in milliseconds.")
+    duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
+    
+     st.markdown('**Key:**')
+    st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
+    key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
+
+    st.markdown('**Loudness:**')
+    st.write("Represents the overall loudness of the track in decibels (dB). Ranges from -60.0 to 0.0.")
+    loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
+
     st.markdown('**Tempo:**')
     st.write("Represents the overall estimated tempo of the track in beats per minute (BPM). Ranges from 0 to 200.")
     tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
@@ -193,6 +190,10 @@ def display_home_page():
     st.markdown('**Followers:**')
     st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
     followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
+
+    st.markdown('**Time-signature:**')
+    st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
+    followers = st.slider("Adjust followers", min_value=3, max_value=7, step=1)
 
 
 if __name__ == "__main__":
