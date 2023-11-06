@@ -126,7 +126,7 @@ def display_home_page():
  # Adding annotations to show the values when hovering over the bars
     for bar in bars2:
        xval = bar.get_width()
-       ax.text(xval, bar.get_x() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
+       ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
 
     plt.show()
 
