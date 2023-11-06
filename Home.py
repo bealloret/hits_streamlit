@@ -171,28 +171,28 @@ def display_set_1():
 
 def display_set_2():
     # Display the set 2 features and graph
-    st.write("Represents the duration of the track in milliseconds.")
-    duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
+    st.write("Represents the duration of the track in minutes.")
+    duration_ms = st.slider("Example duration.)", min_value=0, max_value=100000, value = 2.92)
 
     st.markdown('**Key:**')
     st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
-    key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
+    key = st.slider("Examle key. Range: https://en.wikipedia.org/wiki/Pitch_class", min_value=0, max_value=11, value = 7)
 
     st.markdown('**Loudness:**')
-    st.write("Represents the overall loudness of the track in decibels (dB). Ranges from -60.0 to 0.0.")
-    loudness = st.slider("Adjust loudness", min_value=-60.0, max_value=0.0, step=0.1)
+    st.write("Represents the overall loudness of the track in decibels (dB).")
+    loudness = st.slider("Example loudness. Range: from -60.0 to 0.0.", min_value=-60.0, max_value=0.0, value = -3.673)
 
     st.markdown('**Tempo:**')
-    st.write("Represents the overall estimated tempo of the track in beats per minute (BPM). Ranges from 0 to 200.")
-    tempo = st.slider("Adjust tempo", min_value=0, max_value=200, step=1)
-
-    st.markdown('**Followers:**')
-    st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
-    followers = st.slider("Adjust followers", min_value=0, max_value=1000000, step=1000)
+    st.write("Represents the overall estimated tempo of the track in beats per minute (BPM).")
+    tempo = st.slider("Example tempo. Range: from 0 to 200.", min_value=0, max_value=200, value = 128.040)
 
     st.markdown('**Time-signature:**')
-    st.write("Represents the number of followers of the artist. Ranges from 0 to 1,000,000.")
-    followers = st.slider("Adjust followers", min_value=3, max_value=7, step=1)
+    st.write("Represents the number of beats in each measure.")
+    followers = st.slider("Example time-signature. Range: from 3 to 7", min_value=3, max_value=7, value = 4)
+    
+    st.markdown('**Followers:**')
+    st.write("Represents the number of followers of the artist.")
+    followers = st.slider("Example followers. Range: from 0 to 115 millions.", min_value=0, max_value=115, value =26)
 
     # Creating a sample plot for the example of popularity
     features2 = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature', 'followers_mill']
@@ -219,8 +219,8 @@ def display_set_2():
 
 def display_set_3():
     # Display the set 3 features and graph
-    artist = st.text_input("artist")
-    genre = st.text_input("genre")
+    artist = st.text_input("artist", value = "David Guetta and Bebe Rexha" )
+    genre = st.text_input("genre", value = 'pop' )
 
     pass
 
