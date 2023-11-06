@@ -110,8 +110,8 @@ def display_home_page():
     st.pyplot(fig)
 
     # Creating a sample plot for the example of popularity
-    features2 = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature']
-    popularity_scores2 = [175238, 7, -3.673, 128.040, 4]
+    features2 = ['duration_ms', 'key', 'loudness', 'tempo', 'time-signature', 'followers_mill']
+    popularity_scores2 = [2.92, 7, -3.673, 128.040, 4, 26]
 
     fig2, ax2 = plt.subplots()
     bars2 = ax2.barh(features2, popularity_scores2, color=pastel_colors)
