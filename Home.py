@@ -175,7 +175,7 @@ def display_home_page():
     st.write("Represents the duration of the track in milliseconds.")
     duration_ms = st.slider("Adjust duration (ms)", min_value=0, max_value=100000, step=1000)
     
-     st.markdown('**Key:**')
+    st.markdown('**Key:**')
     st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
     key = st.slider("Adjust key", min_value=0, max_value=11, step=1)
 
