@@ -9,7 +9,6 @@ import numpy as np
 
 
 def display_home_page():
-     feature_set = None  # Define feature_set at the beginning of the function
      # Define the HTML code for the icons
      icon_html = """
         <style>
