@@ -128,7 +128,7 @@ def display_home_page():
        xval = bar.get_width()
        ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
 
-    plt.show()
+     st.pyplot(fig2)
 
 
     artist = st.text_input("artist")
