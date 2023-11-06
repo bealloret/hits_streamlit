@@ -114,14 +114,14 @@ def display_home_page():
     popularity_scores_2 = [175238, 7, -3.673, 128.040, 4]
    
    # Using pastel color palette
-    pastel_colors = sns.color_palette("pastel", len(features))
+    pastel_colors = sns.color_palette("pastel", len(features_2))
 
     fig, ax = plt.subplots()
     bars = ax.barh(features_2, popularity_scores_2, color=pastel_colors)
 
   # Aligning the labels with the bars and setting smaller font size
-    plt.xticks(fontsize=8)
-    plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    plt.xticks(rotation=45, ha=right, fontsize=8)
+    plt.tick_params(axis='y', which='both', bottom=False, top=False, labelbottom=False)
 
  # Removing frame and keeping only the y-axis
     ax.spines['top'].set_visible(False)
@@ -132,7 +132,7 @@ def display_home_page():
  # Adding annotations to show the values when hovering over the bars
     for bar in bars:
        xval = bar.get_width()
-       ax.text(xval, bar.get_y() + bar.get_height() / 2, round(xval, 2), ha='left', va='center')
+       ax.text(xval, bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), ha='left', va='center')
 
     plt.show()
 
