@@ -228,7 +228,24 @@ def display_set_3():
     genre = st.text_input("genre", value = 'pop' )
 
     pass
+# Add space
+st.markdown("<br><br>", unsafe_allow_html=True)
+# Display the sentence
+st.write("##### Do you think you can tune a song until you create a similar hit?")
 
-     
+# Add a button that takes the user to the "Hit Creation Page"
+if st.button("Go to Hit Creation Page"):
+    st.experimental_set_query_params(page="HitCreation")
+
+def display_hit_creation_page():
+    st.title("Hit Creation Page")
+    # Add components for hit creation, such as input fields, buttons, and other necessary elements
+
+if __name__ == "__main__":
+    if "page" in st.experimental_get_query_params():
+        if st.experimental_get_query_params()["page"][0] == "HitCreation":
+            display_hit_creation_page()
+    else:
+        display_home_page()
 if __name__ == "__main__":
     display_home_page()
