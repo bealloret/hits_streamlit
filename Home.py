@@ -12,6 +12,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+pastel_colors = sns.color_palette("pastel", 9)
+
 def display_home_page():
     # Define the HTML code for the icons
     icon_html = """
@@ -144,7 +146,7 @@ def display_set_1():
     popularity_scores = [0.561, 0.965, 1, 0, 0.0343, 0.00383, 0.000007, 0.371, 0.304]
 
     # Using pastel color palette
-    pastel_colors = sns.color_palette("pastel", len(features))
+    #pastel_colors = sns.color_palette("pastel", len(features))
 
     fig, ax = plt.subplots()
     bars = ax.bar(features, popularity_scores, color=pastel_colors)
@@ -199,7 +201,7 @@ def display_set_2():
     popularity_scores2 = [2.92, 7, -3.673, 128.040, 4, 26]
 
       # Using pastel color palette
-    pastel_colors = sns.color_palette("pastel", len(features))
+    #pastel_colors = sns.color_palette("pastel", len(features))
 
     fig2, ax2 = plt.subplots()
     bars2 = ax2.barh(features2, popularity_scores2, color=pastel_colors)
