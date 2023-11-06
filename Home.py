@@ -174,7 +174,7 @@ def display_set_1():
 def display_set_2():
     # Display the set 2 features and graph
     st.write("Represents the duration of the track in minutes.")
-    duration_ms = st.slider("Example duration.)", min_value=0, max_value=100000, value = 2.92)
+    duration_ms = st.slider("Example duration.)", min_value=0, max_value=16, value = 2.92)
 
     st.markdown('**Key:**')
     st.write("Represents the key the track is in, expressed in integer notation from 0 to 11.")
