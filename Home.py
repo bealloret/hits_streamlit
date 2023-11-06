@@ -81,6 +81,9 @@ def display_home_page():
     # Display the sentence 
     st.write("##### Look at the features of this song:")
 
+    # Add space after
+    st.markdown("<br>", unsafe_allow_html=True) 
+
     # Creating a sample plot for the example of popularity
     features = ['danceability', 'energy', 'explicit', 'mode', 'speechiness', 
                 'acousticness', 'instrumentalness', 'liveness', 'valence']
@@ -111,11 +114,11 @@ def display_home_page():
 
     st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing. Ranges from 0.0 (least danceable) to 1.0 (most danceable).")
-    danceability = st.slider("Adjust danceability", min_value=0.0, max_value=1.0, step=0.01)
+    danceability = st.slider("Adjust danceability", min_value=0.0, value=0.561)
 
     st.markdown('**Energy:**')
     st.write("Represents the energy of the track. Ranges from 0.0 (low energy) to 1.0 (high energy).")
-    energy = st.slider("Adjust energy", min_value=0.0, max_value=1.0, step=0.01)
+    energy = st.slider(min_value=0.0, max_value=1.0, value=0.965)
 
     st.markdown('**Explicit:**')
     st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
