@@ -114,39 +114,39 @@ def display_home_page():
 
     st.markdown('**Danceability:**')
     st.write("Represents how suitable a track is for dancing.")
-    danceability = st.slider("Value example. Range: from 0.0 (least danceable) to 1.0 (most danceable).", min_value=0.0, value=0.561)
+    danceability = st.slider("Example value. Range: from 0.0 (least danceable) to 1.0 (most danceable).", min_value=0.0, value=0.561)
 
     st.markdown('**Energy:**')
     st.write("Represents the energy of the track.")
-    energy = st.slider("Value example. Range: from 0.0 (low energy) to 1.0 (high energy).", min_value=0.0, max_value=1.0, value=0.965)
+    energy = st.slider("Example value. Range: from 0.0 (low energy) to 1.0 (high energy).", min_value=0.0, max_value=1.0, value=0.965)
 
     st.markdown('**Explicit:**')
-    st.write("Represents whether the track has explicit content or not. 0 represents not explicit and 1 represents explicit.")
-    explicit = st.slider("Adjust explicit", min_value=0, max_value=1, step=1)
+    st.write("Represents whether the track has explicit content or not.")
+    explicit = st.slider("Example value. Either 0 (represents not explicit) or 1 (represents explicit).", min_value=0, max_value=1, value = 1)
 
     st.markdown('**Mode:**')
-    st.write("Represents the modality of the track. 0 represents minor and 1 represents major.")
-    mode = st.slider("Adjust mode", min_value=0, max_value=1, step=1)
+    st.write("Represents the modality of the track. ")
+    mode = st.slider("Example value. Either 0 (represents minor) or 1 (represents major).", min_value=0, max_value=1, value = 0)
 
     st.markdown('**Speechiness:**')
-    st.write("Represents the presence of spoken words in the track. Ranges from 0.0 to 1.0.")
-    speechiness = st.slider("Adjust speechiness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Represents the presence of spoken words in the track.")
+    speechiness = st.slider("Example value. Range: from 0.0 to 1.0 .", min_value=0.0, max_value=1.0, value = 0.0343)
 
     st.markdown('**Acousticness:**')
-    st.write("Represents the acousticness of the track. Ranges from 0.0 (not acoustic) to 1.0 (acoustic).")
-    acousticness = st.slider("Adjust acousticness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Represents the acousticness of the track.")
+    acousticness = st.slider("Example value. Range: from 0.0 (not acoustic) to 1.0 (acoustic).", min_value=0.0, max_value=1.0, value = 0.00383)
 
     st.markdown('**Instrumentalness:**')
-    st.write("Represents the instrumentalness of the track. Ranges from 0.0 to 1.0.")
-    instrumentalness = st.slider("Adjust instrumentalness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Represents the instrumentalness of the track. ")
+    instrumentalness = st.slider("Example value. Range: from 0.0 to 1.0.", min_value=0.0, max_value=1.0, value = 0.000007)
 
     st.markdown('**Liveness:**')
-    st.write("Represents the presence of a live audience in the track. Ranges from 0.0 to 1.0.")
-    liveness = st.slider("Adjust liveness", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Represents the presence of a live audience in the track. ")
+    liveness = st.slider("Example value. Range: from 0.0 to 1.0.", min_value=0.0, max_value=1.0, value = 0.371)
 
     st.markdown('**Valence:**')
-    st.write("Represents the musical positiveness conveyed by a track. Ranges from 0.0 to 1.0.")
-    valence = st.slider("Adjust valence", min_value=0.0, max_value=1.0, step=0.01)
+    st.write("Represents the musical positiveness conveyed by a track.")
+    valence = st.slider("Example value. Ranges from 0.0 to 1.0.", min_value=0.0, max_value=1.0, value = 0.304)
 
 
     # Creating a sample plot for the example of popularity
