@@ -228,14 +228,14 @@ def display_set_3():
     genre = st.text_input("genre", value = 'pop' )
 
     pass
-# Add space
-st.markdown("<br><br>", unsafe_allow_html=True)
-# Display the sentence
-st.write("##### Do you think you can tune a song until you create a similar hit?")
+    # Add space
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    # Display the sentence
+    st.write("##### Do you think you can tune a song until you create a similar hit?")
 
-# Add a button that takes the user to the "Hit Creation Page"
-if st.button("Go to Hit Creation Page"):
-    st.experimental_set_query_params(page="HitCreation")
+    # Add a button that takes the user to the "Hit Creation Page"
+    if st.button("Go to Hit Creation Page"):
+        st.experimental_set_query_params(page="HitCreation")
 
 def display_hit_creation_page():
     st.title("Hit Creation Page")
