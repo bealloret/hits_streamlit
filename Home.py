@@ -82,9 +82,9 @@ def display_home_page():
     st.write("##### Look at the features of this song:")
 
     # Creating a sample plot for the example of popularity
-    features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'key', 'loudness', 'mode', 'speechiness', 
-                'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers']
-    popularity_scores = [0.561, 0.965, 1, 3, 2, 7, -3.673, 0, 0.0343, 0.00383, 0.000007, 0.371, 0.304, 128.04, 5]
+    features = ['danceability', 'energy', 'explicit', 'mode', 'speechiness', 
+                'acousticness', 'instrumentalness', 'liveness', 'valence']
+    popularity_scores = [0.561, 0.965, 1, 0, 0.0343, 0.00383, 0.000007, 0.371, 0.304]
 
     # Using pastel color palette
     pastel_colors = sns.color_palette("pastel", len(features))
