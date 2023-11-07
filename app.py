@@ -1,6 +1,7 @@
 import streamlit as st
 from Home import display_home_page
 from hit_creation_page import display_hit_creation_page
+from song_similarity_search import display_song_similarity_search
 
 def main():
     st.sidebar.title('Navigation')
@@ -10,6 +11,8 @@ def main():
         display_home_page()
     elif selection == 'Setting page':
         display_hit_creation_page()
+    elif selection == 'Son Similarity page': 
+        display_new_page()
 
 if __name__ == "__main__":
     main()
