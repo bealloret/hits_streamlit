@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 
      
 def display_hit_creation_page():
-    feature_values = {}
      # Define the HTML code for the icons
     icon_html = """
         <style>
@@ -26,30 +25,6 @@ def display_hit_creation_page():
     st.write("""
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
-
-       # Create input fields for the selected features
-    feature_values = {}
-    for feature in features:
-        if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
-             feature_values[feature] = st.slider(feature, key=feature, min_value=0.0, max_value=1.0)
-        else:
-            if feature == 'duration_ms':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16)
-            elif feature == 'followers':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=115)
-            elif feature == 'key':
-                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11)
-            elif feature == 'loudness':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0)
-            elif feature == 'tempo':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200)
-            elif feature == 'time_signature':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
-            elif feature in ['artist', 'genre', 'album_name']:
-                 feature_values[feature] = st.text_input(f"{feature.capitalize()}", key=f"{feature}_input")
-        if feature not in feature_values:
-            feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
-                 
 
 
     # Load model
@@ -71,7 +46,28 @@ def display_hit_creation_page():
         genre = st.text_input("Genre", key="genre")
         album_name = st.text_input("Album Name", key="album_name")  # Collect input for album_name
 
-
+            # Create input fields for the selected features
+    feature_values = {}
+    for feature in features:
+        if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
+             feature_values[feature] = st.slider(feature, key=feature, min_value=0.0, max_value=1.0)
+        else:
+            if feature == 'duration_ms':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16)
+            elif feature == 'followers':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=115)
+            elif feature == 'key':
+                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11)
+            elif feature == 'loudness':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0)
+            elif feature == 'tempo':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200)
+            elif feature == 'time_signature':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
+            elif feature in ['artist', 'genre', 'album_name']:
+                 feature_values[feature] = st.text_input(f"{feature.capitalize()}", key=f"{feature}_input")
+        if feature not in feature_values:
+            feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
   
     # Plot
     fig, ax = plt.subplots(figsize=(8, 5))
