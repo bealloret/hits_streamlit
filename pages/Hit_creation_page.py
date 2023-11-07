@@ -33,9 +33,9 @@ def display_hit_creation_page():
     # Create radio buttons for different feature sets
     feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
 
-    artist = st.text_input("artist")
-    genre = st.text_input("genre")
-    album_name = st.text_input("album_name")  # Collect input for album_name
+    artist = st.text_input("Artist", key="artist")
+    genre = st.text_input("Genre", key="genre")
+    album_name = st.text_input("Album Name", key="album_name")  # Collect input for album_name
 
 
     # Change the labels and default values based on the selected feature set
@@ -64,8 +64,8 @@ def display_hit_creation_page():
                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200)
             elif feature == 'time-signature':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
-            elif feature == 'time_signature':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
+            elif feature in ['artist', 'genre', 'album_name']:
+                 feature_values[feature] = st.text_input()
                  
 
     # Plot
