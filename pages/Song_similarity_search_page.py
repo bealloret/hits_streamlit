@@ -82,6 +82,10 @@ for feature in numerical_features:
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=-60, max_value=0)
         elif feature == 'tempo':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=200)
+        elif feature == 'popularity':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=100)
+        elif feature == 'followers.total':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=150000000)
 
 for feature in categorical_features:
     if feature == 'track_genre':
