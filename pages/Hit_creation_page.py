@@ -50,22 +50,22 @@ def display_hit_creation_page():
     feature_values = {}
     for feature in features:
         if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
-             feature_values[feature] = st.slider(feature, key=feature, min_value=0.0, max_value=1.0, value=0.5)
+             feature_values[feature] = st.slider(feature, key=feature, min_value=0.0, max_value=1.0)
         else:
             if feature == 'duration_ms':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16, value=3)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16)
             elif feature == 'followers':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=115, value=26)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=115)
             elif feature == 'key':
-                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11, value=7)
+                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11)
             elif feature == 'loudness':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0, value=-3)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0)
             elif feature == 'tempo':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200, value=128)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200)
             elif feature == 'time-signature':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
             elif feature == 'time_signature':
-                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
                  
 
     # Plot
