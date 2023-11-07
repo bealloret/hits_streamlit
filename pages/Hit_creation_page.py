@@ -31,28 +31,7 @@ def display_hit_creation_page():
     ### Here you can change the settings of your song and check if it becomes a music hit
     """)
 
-    # Load model
-    file_path = "trained_pipe_knn.sav"
-    loaded_model = pickle.load(open(file_path, 'rb'))
-
-    # Create radio buttons for different feature sets
-    feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
-
-   
-
-    # Change the labels and default values based on the selected feature set
-    if feature_set == 'Set 1':
-        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'time_signature']
-    elif feature_set == 'Set 2':
-        features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
-    elif feature_set == 'Set 3':
-        features = ['liveness', 'valence', 'tempo', 'followers', 'genre', 'album_name', 'artist']
-        artist = st.text_input("Artist", key="artist")
-        genre = st.text_input("Genre", key="genre")
-        album_name = st.text_input("Album Name", key="album_name")  # Collect input for album_name
-
-
-    # Create input fields for the selected features
+       # Create input fields for the selected features
     feature_values = {}
     for feature in features:
         if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
@@ -76,6 +55,28 @@ def display_hit_creation_page():
         feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
                  
 
+
+    # Load model
+    file_path = "trained_pipe_knn.sav"
+    loaded_model = pickle.load(open(file_path, 'rb'))
+
+    # Create radio buttons for different feature sets
+    feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
+
+
+    # Change the labels and default values based on the selected feature set
+    if feature_set == 'Set 1':
+        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'time_signature']
+    elif feature_set == 'Set 2':
+        features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
+    elif feature_set == 'Set 3':
+        features = ['liveness', 'valence', 'tempo', 'followers', 'genre', 'album_name', 'artist']
+        artist = st.text_input("Artist", key="artist")
+        genre = st.text_input("Genre", key="genre")
+        album_name = st.text_input("Album Name", key="album_name")  # Collect input for album_name
+
+
+  
     # Plot
     fig, ax = plt.subplots(figsize=(8, 5))
     colors = ['blue', 'green', 'red', 'purple', 'orange', 'yellow', 'cyan', 'magenta', 'lime', 'pink']  # Add more colors as needed
