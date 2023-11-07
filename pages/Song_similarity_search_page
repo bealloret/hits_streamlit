@@ -6,6 +6,10 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import euclidean_distances
 
+
+def display_song_similarity_search_page():
+    st.title("Song Similarity Search")
+
 def calculate_similarities(data, input_values):
     # Define numerical and categorical features
     numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'popularity', 'speechiness', 'acousticness', 
