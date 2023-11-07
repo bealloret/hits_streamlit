@@ -69,12 +69,31 @@ numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'lo
 categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signature']
 
 input_values = {}
+
 for feature in numerical_features:
-    input_values[feature] = st.slider(feature, key=feature, min_value=0.0, max_value=1.0)
+    if feature in ['danceability', 'energy', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
+        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0.0, max_value=1.0)
+    else:
+        if feature == 'duration_ms':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=16)
+        elif feature == 'followers.total':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=115)
+        elif feature == 'loudness':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=-60, max_value=0)
+        elif feature == 'tempo':
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=200)
 
 for feature in categorical_features:
-    input_values[feature] = st.text_input(f"Enter {feature} value", key=feature)
+    if feature == 'track_genre':
+        input_values[feature] = st.text_input(f"Enter {feature} value", key=f"{feature}_input")
+    elif feature == 'key':
+        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=11)
+    elif feature == 'mode' or feature == 'explicit':
+        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=0, max_value=1)
+    elif feature == 'time_signature':
+        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider", min_value=3, max_value=7)
 
+      
 # Convert the input values to a DataFrame
 input_df = pd.DataFrame([input_values])
 
