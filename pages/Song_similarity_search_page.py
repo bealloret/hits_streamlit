@@ -70,7 +70,7 @@ categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signatur
 
 input_values = {}
 for feature in numerical_features:
-    input_values[feature] = st.number_input(f"Enter {feature} value", key=feature)
+    input_values[feature] = st.slider(f"Enter {feature} value", key=feature)
 
 for feature in categorical_features:
     input_values[feature] = st.text_input(f"Enter {feature} value", key=feature)
