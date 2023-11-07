@@ -68,10 +68,10 @@ def display_hit_creation_page():
 
     # Plot
     fig, ax = plt.subplots(figsize=(8, 5))
-    colors = ['blue', 'green', 'red', 'purple', 'orange']
+    colors = ['blue', 'green', 'red', 'purple', 'orange', 'yellow', 'cyan', 'magenta', 'lime', 'pink']  # Add more colors as needed
     popularity_scores = [feature_values[feature] for feature in features]
 
-    bars = ax.bar(features, popularity_scores, color=colors)
+    bars = ax.bar(features, popularity_scores, color=colors[:len(features)])
 
     # Removing frame and keeping only the x-axis
     ax.spines['top'].set_visible(False)
