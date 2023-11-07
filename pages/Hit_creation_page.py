@@ -64,6 +64,8 @@ def display_hit_creation_page():
                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200, value=128)
             elif feature == 'time-signature':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
+            elif feature == 'time_signature':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
                  
 
     # Plot
