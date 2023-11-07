@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
      
 def display_hit_creation_page():
+     artist = ""
      # Define the HTML code for the icons
     icon_html = """
         <style>
