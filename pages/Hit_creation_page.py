@@ -40,7 +40,7 @@ def display_hit_creation_page():
 
     # Change the labels and default values based on the selected feature set
     if feature_set == 'Set 1':
-        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'year', 'time_signature']
+        features = ['danceability', 'energy', 'explicit', 'duration_ms', 'time_signature']
     elif feature_set == 'Set 2':
         features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
     elif feature_set == 'Set 3':
@@ -49,10 +49,22 @@ def display_hit_creation_page():
     # Create input fields for the selected features
     feature_values = {}
     for feature in features:
-        if feature == 'key' or feature == 'mode':
-            feature_values[feature] = st.number_input(feature, key=feature)
+        if feature in ['key', 'mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
+             feature_values[feature] = st.number_input(feature, key=feature, min_value=0, max_value=1, value=0.5)
         else:
-            feature_values[feature] = st.slider(feature, key=feature)
+            if feature == 'duration_ms':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16, value=3)
+            elif feature == 'followers':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=115, value=26)
+            elif feature == 'key':
+                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11, value=7)
+            elif feature == 'loudness':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0, value=-3)
+            elif features == 'tempo':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200, value=128)
+            else features == 'time-signature':
+             feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
+                 
 
     # Plot
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -82,7 +94,6 @@ def display_hit_creation_page():
         'energy': [feature_values.get('energy', 0.7)],  # Default value for energy
         'explicit': [feature_values.get('explicit', 0.3)],  # Default value for explicit
         'duration_ms': [feature_values.get('duration_ms', 0.6)],  # Default value for duration_ms
-        'year': [feature_values.get('year', 2000)],
         'key': [feature_values.get('key', 0.8)],  # Default value for key
         'loudness': [feature_values.get('loudness', 0.2)],  # Default value for loudness
         'mode': [feature_values.get('mode', 0.5)],  # Default value for mode
