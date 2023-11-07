@@ -50,7 +50,7 @@ def display_hit_creation_page():
     feature_values = {}
     for feature in features:
         if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
-             feature_values[feature] = st.number_input(feature, key=feature, min_value=0, max_value=1, value=0.5)
+             feature_values[feature] = st.number_input(feature, key=feature, min_value=0.0, max_value=1.0, value=0.5)
         else:
             if feature == 'duration_ms':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=16, value=3)
