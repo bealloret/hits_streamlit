@@ -242,8 +242,4 @@ def display_hit_creation_page():
     # Add components for hit creation, such as input fields, buttons, and other necessary elements
 
 if __name__ == "__main__":
-    if "page" in st.experimental_get_query_params():
-        if st.experimental_get_query_params()["page"][0] == "HitCreation":
-            display_hit_creation_page()
-    else:
-        display_home_page()
+    display_home_page()
