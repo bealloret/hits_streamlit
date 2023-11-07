@@ -94,7 +94,7 @@ def display_hit_creation_page():
         'tempo': [feature_values.get('tempo', 0.2)],  # Default value for tempo
         'album_name':[album_name],
         'time_signature':[feature_values.get('time_signature', 4)],
-        'followers': [feature_values.get('followers', 0.5)]  # Default value for followers
+        'followers': [feature_values.get('followers', 50)]  # Default value for followers
     })
 
     # Adjust the column names to match the names in the model file
