@@ -49,7 +49,7 @@ def display_hit_creation_page():
     # Create input fields for the selected features
     feature_values = {}
     for feature in features:
-        if feature in ['key', 'mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
+        if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
              feature_values[feature] = st.number_input(feature, key=feature, min_value=0, max_value=1, value=0.5)
         else:
             if feature == 'duration_ms':
@@ -60,10 +60,10 @@ def display_hit_creation_page():
                   feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=11, value=7)
             elif feature == 'loudness':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=-60, max_value=0, value=-3)
-            elif features == 'tempo':
+            elif feature == 'tempo':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200, value=128)
-            else features == 'time-signature':
-             feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
+            elif feature == 'time-signature':
+                 feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7, value=4)
                  
 
     # Plot
