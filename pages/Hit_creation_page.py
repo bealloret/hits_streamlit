@@ -51,8 +51,8 @@ def display_hit_creation_page():
                  feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
             elif feature in ['artist', 'genre', 'album_name']:
                  feature_values[feature] = st.text_input(f"{feature.capitalize()}", key=f"{feature}_input")
-      if feature not in feature_values:
-        feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
+        if feature not in feature_values:
+            feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
                  
 
 
