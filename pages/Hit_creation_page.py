@@ -9,6 +9,9 @@ def display_hit_creation_page():
     artist = ""
     followers = ""
     genre = ""
+    album_name = ""
+    time_signature = ""
+     
      # Define the HTML code for the icons
     icon_html = """
         <style>
