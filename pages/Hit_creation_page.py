@@ -6,11 +6,10 @@ import matplotlib.pyplot as plt
 
      
 def display_hit_creation_page():
-    artist = ""
-    followers = ""
-    genre = ""
-    album_name = ""
-    time_signature = ""
+    artist_value = feature_values.get("artist", "")
+    genre_value = feature_values.get("genre", "")
+    album_name_value = feature_values.get("album_name", "")
+    time_signature_value = feature_values.get("time_signature","")
      
      # Define the HTML code for the icons
     icon_html = """
