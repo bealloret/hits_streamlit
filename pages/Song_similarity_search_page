@@ -5,10 +5,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import euclidean_distances
+import pickle
 
-
-def display_song_similarity_search_page():
-    st.title("Song Similarity Search")
 
 def calculate_similarities(data, input_values):
     # Define numerical and categorical features
@@ -56,11 +54,13 @@ def calculate_similarities(data, input_values):
     
     return dataset_similarities.head(5)
 
+def display_song_similarity_search_page():
+    st.title("Song Similarity Search")
+
 # Example data (replace this with your dataset)
 data = pd.DataFrame()
 
 # Create Streamlit app
-st.title("Song Similarity Search")
 st.write("Please input the features of the song to find similar songs.")
 
 # Input fields for each feature
@@ -85,3 +85,5 @@ similar_songs = calculate_similarities(data, input_df)
 st.write("Top 5 similar songs:")
 st.write(similar_songs)
 
+if __name__ == "__main__":
+    display_hit_creation_page()
