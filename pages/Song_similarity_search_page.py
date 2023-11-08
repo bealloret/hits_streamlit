@@ -126,6 +126,7 @@ def display_song_similarity_search_page():
 
     # Display the results
     st.write("Five similar songs:")
+    st.write(data_for_recommender.head())
     #columns_to_display = ["artists", "track_name", "album_name", "artist_external_urls.spotify"]
     #st.write(similar_songs[columns_to_display])
     st.write(similar_songs)
