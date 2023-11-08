@@ -58,58 +58,57 @@ def calculate_similarities(data, input_values):
 
 def display_song_similarity_search_page():
     st.title("Song Similarity Search")
+    # Example data (replace this with your dataset)
+    data_for_recommender = pd.read_csv('data_for_recommender.csv')
 
-# Example data (replace this with your dataset)
-data_for_recommender = pd.read_csv('data_for_recommender.csv')
+    # Create Streamlit app
+    st.write("Please input the features of the song to find similar songs.")
 
-# Create Streamlit app
-st.write("Please input the features of the song to find similar songs.")
-
-# Input fields for each feature
-numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'speechiness',
+    # Input fields for each feature
+    numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'speechiness',
                       'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers.total']
-categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signature']
+    categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signature']
 
 
-input_values = {}
+    input_values = {}
 
-for feature in numerical_features:
-    if feature in ['danceability', 'energy', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
+    for feature in numerical_features:
+        if feature in ['danceability', 'energy', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
         input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_1", min_value=0.0, max_value=1.0)
-    else:
-        if feature == 'duration_ms':
+        else:
+            if feature == 'duration_ms':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_2", min_value=0, max_value=16)
-        elif feature == 'followers.total':
+            elif feature == 'followers.total':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_3", min_value=0, max_value=115)
-        elif feature == 'loudness':
+            elif feature == 'loudness':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_4", min_value=-60, max_value=0)
-        elif feature == 'tempo':
+            elif feature == 'tempo':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_5", min_value=0, max_value=200)
-        elif feature == 'popularity':
+            elif feature == 'popularity':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_6", min_value=0, max_value=100)
-        elif feature == 'followers.total':
+            elif feature == 'followers.total':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_7", min_value=0, max_value=150000000)
 
-for feature in categorical_features:
-    if feature == 'track_genre':
+    for feature in categorical_features:
+        if feature == 'track_genre':
         input_values[feature] = st.text_input(f"Enter {feature} value", key=f"{feature}_input_1")
-    elif feature == 'key':
+        elif feature == 'key':
         input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_8", min_value=0, max_value=11)
-    elif feature == 'mode' or feature == 'explicit':
+        elif feature == 'mode' or feature == 'explicit':
         input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_9", min_value=0, max_value=1)
-    elif feature == 'time_signature':
+        elif feature == 'time_signature':
         input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_10", min_value=3, max_value=7)
 
       
-# Convert the input values to a DataFrame
-input_df = pd.DataFrame([input_values])
+        # Convert the input values to a DataFrame
+        input_df = pd.DataFrame([input_values])
 
-# Process the data and get the similar songs
-similar_songs = calculate_similarities(data_for_recommender, input_df)
+        # Process the data and get the similar songs
+        similar_songs = calculate_similarities(data_for_recommender, input_df)
 
-# Display the results
-st.write("Top 5 similar songs:")
-st.write(similar_songs)
+        # Display the results
+        st.write("Top 5 similar songs:")
+        st.write(similar_songs)
 
 if __name__ == "__main__":
     display_song_similarity_search_page()
