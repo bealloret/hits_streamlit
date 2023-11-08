@@ -51,7 +51,7 @@ def display_hit_creation_page():
         features = ['danceability', 'energy', 'explicit', 'duration_ms', 'time_signature']
     elif feature_set == 'Set 2':
         features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
-    elif feature_set == 'Set 3'
+    elif feature_set == 'Set 3':
         features = ['liveness', 'valence', 'tempo', 'followers', 'track_genre', 'album_name', 'artists']
     
     # Create input fields for the selected features
