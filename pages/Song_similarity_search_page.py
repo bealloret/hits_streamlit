@@ -50,7 +50,7 @@ def calculate_similarities(data, input_values):
     similarities_series = pd.Series(similarities.flatten())
     
     # Create a new DataFrame to store the dataset with similarities
-    dataset_similarities = pd.concat([dataset_df.reset_index(drop=True), similarities_series], axis=1)
+    dataset_similarities = pd.concat([dataset_for_recommender.reset_index(drop=True), similarities_series], axis=1)
     
     return dataset_similarities.head(5)
 
@@ -58,7 +58,7 @@ def display_song_similarity_search_page():
     st.title("Song Similarity Search")
 
 # Example data (replace this with your dataset)
-data = pd.DataFrame()
+data_for_recommender = pd.DataFrame()
 
 # Create Streamlit app
 st.write("Please input the features of the song to find similar songs.")
