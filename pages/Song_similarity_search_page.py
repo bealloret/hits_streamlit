@@ -64,11 +64,10 @@ data = pd.DataFrame()
 st.write("Please input the features of the song to find similar songs.")
 
 # Input fields for each feature
-numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'popularity', 'speechiness',
+numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'speechiness',
                       'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'followers.total']
 categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signature']
 
-input_values = {}
 
 input_values = {}
 
