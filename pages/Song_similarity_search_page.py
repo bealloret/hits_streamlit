@@ -50,7 +50,7 @@ def calculate_similarities(data, input_values):
     similarities_series = pd.Series(similarities.flatten())
     
     # Create a new DataFrame to store the dataset with similarities
-    dataset_similarities = pd.concat([data_for_recommender.reset_index(drop=True), similarities_series], axis=1)
+    dataset_similarities = pd.concat([data.reset_index(drop=True), similarities_series], axis=1)
     
     return dataset_similarities.head(5)
 
