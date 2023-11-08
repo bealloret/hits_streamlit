@@ -5,25 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
      
-def display_hit_creation_page():
-     # Load the data from the CSV file
-    data = pd.read_csv('data_for_recommender.csv')
-
-    # Extract the unique values for artist, genre, and album_name
-    unique_artists = data['artist'].unique()
-    unique_genres = data['genre'].unique()
-    unique_album_names = data['album_name'].unique()
-
-    # Create dropdown buttons for artist, genre, and album_name
-    selected_artist = st.selectbox("Select Artist", unique_artists)
-    selected_genre = st.selectbox("Select Genre", unique_genres)
-    selected_album_name = st.selectbox("Select Album Name", unique_album_names)
-
-    # Set the selected values to the feature_values dictionary
-    feature_values['artist'] = selected_artist
-    feature_values['genre'] = selected_genre
-    feature_values['album_name'] = selected_album_name
-     
+def display_hit_creation_page(): 
      # Define the HTML code for the icons
     icon_html = """
         <style>
@@ -48,6 +30,24 @@ def display_hit_creation_page():
     # Load model
     file_path = "trained_pipe_knn.sav"
     loaded_model = pickle.load(open(file_path, 'rb'))
+
+      # Load the data from the CSV file
+    data = pd.read_csv('data_for_recommender.csv')
+
+    # Extract the unique values for artist, genre, and album_name
+    unique_artists = data['artists'].unique()
+    unique_genres = data['track_genre'].unique()
+    unique_album_names = data['album_name'].unique()
+
+    # Create dropdown buttons for artist, genre, and album_name
+    selected_artist = st.selectbox("Select Artist", unique_artists)
+    selected_genre = st.selectbox("Select Genre", unique_genres)
+    selected_album_name = st.selectbox("Select Album Name", unique_album_names)
+
+    # Set the selected values to the feature_values dictionary
+    feature_values['artists'] = selected_artist
+    feature_values['track_genre'] = selected_genre
+    feature_values['album_name'] = selected_album_name
 
     # Create radio buttons for different feature sets
     feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
