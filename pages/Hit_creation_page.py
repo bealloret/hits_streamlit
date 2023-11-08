@@ -39,19 +39,8 @@ def display_hit_creation_page():
     unique_genres = data['track_genre'].unique()
     unique_album_names = data['album_name'].unique()
 
-    # Create dropdown buttons for artist, genre, and album_name
-    selected_artist = st.selectbox("Select Artist", unique_artists)
-    selected_genre = st.selectbox("Select Genre", unique_genres)
-    selected_album_name = st.selectbox("Select Album Name", unique_album_names)
-
-    # Set the selected values to the feature_values dictionary
-    feature_values['artists'] = selected_artist
-    feature_values['track_genre'] = selected_genre
-    feature_values['album_name'] = selected_album_name
-
     # Create radio buttons for different feature sets
     feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
-
 
     # Change the labels and default values based on the selected feature set
     if feature_set == 'Set 1':
@@ -59,12 +48,13 @@ def display_hit_creation_page():
     elif feature_set == 'Set 2':
         features = ['loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness']
     elif feature_set == 'Set 3':
-        features = ['liveness', 'valence', 'tempo', 'followers', 'genre', 'album_name', 'artist']
-        artist = st.text_input("Artist", key="artist")
-        genre = st.text_input("Genre", key="genre")
-        album_name = st.text_input("Album Name", key="album_name")  # Collect input for album_name
+        artist = st.selectbox("Select Artist", unique_artists)
+        genre = st.selectbox("Select Genre", unique_genres)
+        album_name = st.selectbox("Select Album Name", unique_album_names)
 
-            # Create input fields for the selected features
+        features = ['liveness', 'valence', 'tempo', 'followers', 'track_genre', 'album_name', 'artists']
+    
+    # Create input fields for the selected features
     feature_values = {}
     for feature in features:
         if feature in ['mode', 'danceability', 'energy', 'explicit', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
@@ -82,8 +72,12 @@ def display_hit_creation_page():
                  feature_values[feature] = st.slider(feature, key=feature, min_value=0, max_value=200)
             elif feature == 'time_signature':
                  feature_values[feature] = st.slider(feature, key=feature, min_value=3, max_value=7)
-            elif feature in ['artist', 'genre', 'album_name']:
-                 feature_values[feature] = st.text_input(f"{feature.capitalize()}", key=f"{feature}_input")
+            elif feature == 'track_genre':
+                feature_values[feature] = genre
+            elif feature == 'artists':
+                feature_values[feature] = artist
+            elif feature == 'album_name':
+                feature_values[feature] = album_name
         if feature not in feature_values:
             feature_values[feature] = 0  # Replace 0 with an appropriate default value for your use case
   
