@@ -1,3 +1,5 @@
+import streamlit as st
+
 def display_upload_page():
     # Define the HTML code for the icons
     icon_html = """
