@@ -5,7 +5,7 @@ from song_similarity_search_page import display_song_similarity_search_page
 
 def main():
     st.sidebar.title('Navigation')
-    selection = st.sidebar.radio("Go to", ['Home', 'Setting page', 'Song Similarity page'], label="Choose a Page")
+    selection = st.sidebar.radio("Go to", ['Home', 'Setting page', 'Song Similarity page', 'Upload page'], label="Choose a Page")
 
     if selection == 'Home':
         display_home_page()
@@ -13,6 +13,8 @@ def main():
         display_hit_creation_page()
     elif selection == 'Song Similarity page': 
         display_song_similarity_search_page()
+    elif selection == "Upload page":
+        display_upload_page()
 
 if __name__ == "__main__":
     main()
