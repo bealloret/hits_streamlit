@@ -57,8 +57,26 @@ def calculate_similarities(data, input_values):
     return dataset_similarities.head(5)
 
 def display_song_similarity_search_page():
-    st.title("Song Similarity Search")
-    # Example data (replace this with your dataset)
+    # Define the HTML code for the icons
+    icon_html = """
+        <style>
+        .icon {
+           display: inline-block;
+           vertical-align: middle;
+    }
+    </style>
+    <h1>
+    <span class="icon">🎵</span> Which songs are similar to your hit? Check it out! <span class="icon">⚙️</span> <span class="icon">🔩</span>
+    </h1>
+    """
+    # Display the icons with the title using the markdown method
+    st.markdown(icon_html, unsafe_allow_html=True)
+
+    
+    st.write("""
+    ### Here you can change the settings and see which songs are similar to yourse. Enjoy!
+    """)
+
     data_for_recommender = pd.read_csv('data_for_recommender.csv')
 
     # Create Streamlit app
