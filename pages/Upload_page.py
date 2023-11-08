@@ -16,7 +16,7 @@ def display_upload_page():
     # Display the icons with the title using the markdown method
     st.markdown(icon_html, unsafe_allow_html=True)
     st.markdown("""
-    ## Here you can check what are the features of your song by uploading it
+    ## Here you can check what are the features of your song.
     """)
 
     # Allow the user to upload an audio file
