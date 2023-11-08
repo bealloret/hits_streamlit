@@ -10,7 +10,7 @@ import pickle
 
 def calculate_similarities(data, input_values):
     # Define numerical and categorical features
-    numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'popularity', 'speechiness', 'acousticness', 
+    numerical_features = ['duration_ms', 'popularity', 'danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 
                           'instrumentalness', 'liveness', 'valence',
                          'tempo', 'followers.total']
     categorical_features = ['key', 'mode', 'track_genre', 'explicit', 'time_signature']
