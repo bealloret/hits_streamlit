@@ -125,10 +125,10 @@ def display_song_similarity_search_page():
     similar_songs = calculate_similarities(data_for_recommender, input_df)
 
     # Display the results
-    st.write("Five similar songs:")
-    st.write(data_for_recommender.head())
-    #columns_to_display = ["artists", "track_name", "album_name", "artist_external_urls.spotify"]
-    #st.write(similar_songs[columns_to_display])
+    st.write("Songs similar to yours:")
+    #st.write(data_for_recommender.head())
+    columns_to_display = ["artists", "track_name", "album_name", "artist_external_urls.spotify"]
+    st.write(similar_songs[columns_to_display])
     st.write(similar_songs)
 
 if __name__ == "__main__":
