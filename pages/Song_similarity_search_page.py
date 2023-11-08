@@ -74,7 +74,7 @@ def display_song_similarity_search_page():
 
     for feature in numerical_features:
         if feature in ['danceability', 'energy', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence']:
-        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_1", min_value=0.0, max_value=1.0)
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_1", min_value=0.0, max_value=1.0)
         else:
             if feature == 'duration_ms':
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_2", min_value=0, max_value=16)
