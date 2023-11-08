@@ -39,9 +39,9 @@ def display_hit_creation_page():
     unique_genres = data['track_genre'].unique()
     unique_album_names = data['album_name'].unique()
 
-     artist = st.selectbox("Select Artist", unique_artists)
-     genre = st.selectbox("Select Genre", unique_genres)
-     album_name = st.selectbox("Select Album Name", unique_album_names)
+    artist = st.selectbox("Select Artist", unique_artists)
+    genre = st.selectbox("Select Genre", unique_genres)
+    album_name = st.selectbox("Select Album Name", unique_album_names)
 
     # Create radio buttons for different feature sets
     feature_set = st.radio("Choose a feature set", ('Set 1', 'Set 2', 'Set 3'))
