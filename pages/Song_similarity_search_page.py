@@ -107,7 +107,7 @@ def display_song_similarity_search_page():
         similar_songs = calculate_similarities(data_for_recommender, input_df)
 
         # Display the results
-        st.write("Top 5 similar songs:")
+        st.write("Five similar songs:")
         st.write(similar_songs)
 
 if __name__ == "__main__":
