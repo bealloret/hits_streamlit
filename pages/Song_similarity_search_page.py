@@ -6,6 +6,8 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import euclidean_distances
 import pickle
+from sklearn import set_config
+set_config(transform_output="pandas")
 
 
 def calculate_similarities(data, input_values):
@@ -103,13 +105,12 @@ for feature in categorical_features:
 input_df = pd.DataFrame([input_values])
 
 # Process the data and get the similar songs
-#similar_songs = calculate_similarities(data_for_recommender, input_df)
+similar_songs = calculate_similarities(data_for_recommender, input_df)
 
 # Display the results
-#st.write("Top 5 similar songs:")
-#st.write(similar_songs)
+st.write("Top 5 similar songs:")
+st.write(similar_songs)
 st.write(input_df)
-str.write(data_for_recommender)
 
 if __name__ == "__main__":
     display_song_similarity_search_page()
