@@ -129,7 +129,7 @@ def display_song_similarity_search_page():
     #st.write(data_for_recommender.head())
     columns_to_display = ["artists", "track_name", "album_name", "artist_external_urls.spotify"]
     st.write(similar_songs[columns_to_display])
-    st.write(similar_songs)
+    #st.write(similar_songs)
 
 if __name__ == "__main__":
     display_song_similarity_search_page()
