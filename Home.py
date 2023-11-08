@@ -7,11 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 pastel_colors = sns.color_palette("pastel", 9)
 
 def display_home_page():
