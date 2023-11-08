@@ -190,7 +190,7 @@ def display_set_2():
 
     st.markdown('**Time-signature:**')
     st.write("Represents the number of beats in each measure.")
-    followers = st.slider("Example time-signature. Range: from 3 to 7", min_value=3, max_value=7, value = 4)
+    time-signature = st.slider("Example time-signature. Range: from 3 to 7", min_value=3, max_value=7, value = 4)
     
     st.markdown('**Followers:**')
     st.write("Represents the number of followers of the artist.")
