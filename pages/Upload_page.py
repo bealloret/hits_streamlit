@@ -1,4 +1,4 @@
-def display_home_page():
+def display_upload_page():
     # Define the HTML code for the icons
     icon_html = """
     <style>
