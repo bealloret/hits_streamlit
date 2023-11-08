@@ -77,27 +77,27 @@ def display_song_similarity_search_page():
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_1", min_value=0.0, max_value=1.0)
         else:
             if feature == 'duration_ms':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_2", min_value=0, max_value=16)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_2", min_value=0, max_value=16)
             elif feature == 'followers.total':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_3", min_value=0, max_value=115)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_3", min_value=0, max_value=115)
             elif feature == 'loudness':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_4", min_value=-60, max_value=0)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_4", min_value=-60, max_value=0)
             elif feature == 'tempo':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_5", min_value=0, max_value=200)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_5", min_value=0, max_value=200)
             elif feature == 'popularity':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_6", min_value=0, max_value=100)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_6", min_value=0, max_value=100)
             elif feature == 'followers.total':
-            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_7", min_value=0, max_value=150000000)
+                input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_7", min_value=0, max_value=150000000)
 
     for feature in categorical_features:
         if feature == 'track_genre':
-        input_values[feature] = st.text_input(f"Enter {feature} value", key=f"{feature}_input_1")
+            input_values[feature] = st.text_input(f"Enter {feature} value", key=f"{feature}_input_1")
         elif feature == 'key':
-        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_8", min_value=0, max_value=11)
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_8", min_value=0, max_value=11)
         elif feature == 'mode' or feature == 'explicit':
-        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_9", min_value=0, max_value=1)
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_9", min_value=0, max_value=1)
         elif feature == 'time_signature':
-        input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_10", min_value=3, max_value=7)
+            input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_10", min_value=3, max_value=7)
 
       
         # Convert the input values to a DataFrame
