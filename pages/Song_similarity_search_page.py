@@ -103,7 +103,7 @@ for feature in categorical_features:
 input_df = pd.DataFrame([input_values])
 
 # Process the data and get the similar songs
-similar_songs = calculate_similarities(data, input_df)
+similar_songs = calculate_similarities(data_for_recommender, input_df)
 
 # Display the results
 st.write("Top 5 similar songs:")
