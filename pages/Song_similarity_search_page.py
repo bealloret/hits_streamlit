@@ -100,15 +100,15 @@ def display_song_similarity_search_page():
             input_values[feature] = st.slider(f"Enter {feature} value", key=f"{feature}_slider_10", min_value=3, max_value=7)
 
       
-        # Convert the input values to a DataFrame
-        input_df = pd.DataFrame([input_values])
+    # Convert the input values to a DataFrame
+    input_df = pd.DataFrame([input_values])
 
-        # Process the data and get the similar songs
-        similar_songs = calculate_similarities(data_for_recommender, input_df)
+    # Process the data and get the similar songs
+    similar_songs = calculate_similarities(data_for_recommender, input_df)
 
-        # Display the results
-        st.write("Five similar songs:")
-        st.write(similar_songs)
+    # Display the results
+    st.write("Five similar songs:")
+    st.write(similar_songs)
 
 if __name__ == "__main__":
     display_song_similarity_search_page()
