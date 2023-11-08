@@ -109,6 +109,7 @@ input_df = pd.DataFrame([input_values])
 #st.write("Top 5 similar songs:")
 #st.write(similar_songs)
 st.write(input_df)
+str.write(data_for_recommender)
 
 if __name__ == "__main__":
     display_song_similarity_search_page()
