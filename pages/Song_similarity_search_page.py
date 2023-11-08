@@ -60,7 +60,7 @@ def display_song_similarity_search_page():
     st.title("Song Similarity Search")
 
 # Example data (replace this with your dataset)
-data_for_recommender = pd.DataFrame()
+data_for_recommender = pd.read_csv('data_for_recommender.csv')
 
 # Create Streamlit app
 st.write("Please input the features of the song to find similar songs.")
